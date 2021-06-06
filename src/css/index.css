@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+
+/*푸터*/
+
+.footer-text {
+  text-align: center;
+  align-items: center;
+}
+
+footer {
+  padding: 20px;
+  background-color: #1f2226;
+  color: white;
+  align-items: center;
+  text-align: center;
+}
+
+dl, li, ol, ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul {
+  margin: auto;
+  text-align: center;
+}
+
+li {
+  margin: 7px;
+  background-color: #ebebf0;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+}
+
+
+.github_icon {
+  margin-top: 7px;
+  display: inline-block;
+  opacity: 30%;
+  width: 30px;
+  height: 30px;
+  color: white;
+}
+
+.github_icon:hover {
+  opacity: 100%;
+  transition: opacity 0.15s ease-in-out, opacity 0.15s ease-in-out;
+}
+
+.blog_icon {
+  margin-top: 7px;
+  margin-left: 1px;
+  display: inline-block;
+  opacity: 30%;
+  width: 30px;
+  height: 30px;
+  color: white;
+}
+
+.blog_icon:hover {
+  opacity: 100%;
+  transition: opacity 0.15s ease-in-out, opacity 0.15s ease-in-out;
+}

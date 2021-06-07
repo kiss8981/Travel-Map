@@ -1,11 +1,12 @@
 /*global kakao */
+
 import React, { useState } from "react";
 const { kakao } = window;
 
 export default function AddReportMap(props) {
     const [mapDataX, setMapDataX] = useState();
     const [mapDataY, setMapDataY] = useState();
-    
+
     var infowindow = new kakao.maps.InfoWindow({zIndex:1});
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
         mapOption = {

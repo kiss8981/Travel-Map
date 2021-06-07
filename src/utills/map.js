@@ -1,7 +1,8 @@
 /*global kakao */
+// eslint-disable-line no-unused-vars
+
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
-import LogoImg from '../assets/logo192.png'
 const { kakao } = window;
 
 export default function Map() {
@@ -55,24 +56,20 @@ export default function Map() {
           position: new kakao.maps.LatLng(latlng[0], latlng[1]),
           map: map,
         })
+        var iwContent = `<div style="padding:5px;font-size:17px;">${data[i]['place_name']} <br/><img src="https://travel.audiscordbot.xyz${data[i]['img']}" style="max-width: 200px; max-height: 200px"/></div>`,
+            iwRemoveable = true;
         var infowindow = new kakao.maps.InfoWindow({
-          content: `<div style="padding:5px;font-size:17px;">${data[i]['place_name']} <br/><img src="https://travel.audiscordbot.xyz${data[i]['img']}" style="max-width: 200px; max-height: 200px"/></div>`
+          content: iwContent,
+          removable : iwRemoveable
         });
       makers.push(marker);
-      kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-      kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+      kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker, infowindow));
     }
     clusterer.addMarkers(makers)
     function makeOverListener(map, marker, infowindow) {
       return function() {
           infowindow.open(map, marker);
       };
-    }
-    // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-    function makeOutListener(infowindow) {
-        return function() {
-            infowindow.close();
-        };
     }
   };
 

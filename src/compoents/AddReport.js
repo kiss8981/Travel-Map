@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Form } from 'react-bootstrap';
 import AddReportMap from '../utills/AddReportMap'
@@ -73,7 +73,7 @@ function AddReport() {
       formData.append('user_email', localStorage.getItem("user_email"))
       formData.append('user_name', localStorage.getItem("user_name"))
       // 서버의 upload API 호출
-      const res = await axios.post("https://travel.audiscordbot.xyz/api/data", formData, { headers });
+      await axios.post("https://travel.audiscordbot.xyz/api/data", formData, { headers });
       setUploadStatus(true)
       var uploadstatusAlert = document.getElementById('uploadstatus-alert')
       var uploadstatusButton = document.getElementById('uploadstatus-button')
@@ -87,16 +87,16 @@ function AddReport() {
                 <div role="alert" id="uploadstatus-alert" className="alert alert-info" style={{marginTop: "8%", marginBottom: "40%"}}>로그인후 이용해주세요!</div>
             ) : (
                 <>
-                <Form className="mb-3" id="summitform">
+                <Form className="summitform mb-3" id="summitform">
                 
                 <Form.Group className="mb-3">
-                    <label className="form-label">* 장소이름</label>
+                    <label className="form-label"><i className="fas fa-map-marked-alt"></i> 장소</label>
                     <div>
                         <input id="readonlyplace" className="form-control" type="text" placeholder="장소이름" onChange={onPlace_name}/>
                     </div>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                    <label className="form-label">* 사진</label>
+                    <label className="form-label"><i className="far fa-image"></i> 사진</label>
                     <input id="readonlyimg" style={{display: "block"}} className="input-group-prepend" type="file" accept='image/jpg,impge/png,image/jpeg' onChange={onChangeFile}/>
                     {thumbnailShow === true ? (
                         <div id="image_container"></div>
@@ -105,13 +105,13 @@ function AddReport() {
                     )}
                 </Form.Group>
                 <Form.Group className="mb-3">
-                    <label className="form-label">* 방문일자</label>
+                    <label className="form-label"><i className="fas fa-clock"></i> 방문일자</label>
                     <div>
                     <input id="readonlydate" className="form-control" type="date" onChange={onVisittime}/>
                     </div>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                    <label className="form-label">* 설명</label>
+                    <label className="form-label"><i className="far fa-comment"></i> 설명</label>
                     <div>
                     <input id="readonlydes" className="form-control" type="text" placeholder="설명" onChange={onDescription} style={{height: "80px"}}/>
                     </div>

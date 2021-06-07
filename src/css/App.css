@@ -15,3 +15,71 @@
     justify-content: center!important;
     display: flex!important;
 }
+
+.footer-link {
+    color: white;
+}
+
+.footer-link:hover {
+    color: white;
+}
+
+.footer-link:link {
+    color: white;
+}
+
+.footer-link:active {
+    color: white;
+}
+
+.footer-link:visited {
+    color: white;
+}
+
+.card {
+    align-items: center;
+    text-align: center;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    border-radius: 10px;
+  }
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-container {
+    margin-top: 5px;
+    padding: 4px 16px;
+}
+
+.card-img {
+    padding: .1em;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: solid 3px gray;
+    border-style: dashed;
+}
+
+.text-gray {
+    --tw-text-opacity: 1;
+    color: rgba(156,163,175,var(--tw-text-opacity));
+}
+
+.summitform {
+    transition: all 1s ease-in;
+}
+
+
+@font-face {
+    font-family: 'Cafe24Oneprettynight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+ font-family: 'Cafe24Oneprettynight';
+}

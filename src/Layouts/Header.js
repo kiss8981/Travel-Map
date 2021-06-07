@@ -28,7 +28,8 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         <Link className="nav-link" to="/">홈</Link>
-                        <Link className="nav-link" to="/add">추가하기</Link>
+                        <Link className="nav-link" to="/list">목록</Link>
+                        <Link className="nav-link" to="/add">기록하기</Link>
                     </Nav>
                 </Navbar.Collapse>
                 {localStorage.getItem("user_id") === null ? (

@@ -1,13 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Navbar, Nav, Container } from 'react-bootstrap'
 
 const Header = () => {
     return (
         <>
         <header>
-        <Link to="/">홈</Link><br/>
-        <Link to="/photo">사진</Link><br/>
-        <Link to="rooms">방 소개</Link><br/>
+            <Navbar bg="light" expand="lg">
+                <Container>
+                <Navbar.Brand href="/">여행기록</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto">
+                        <Link className="nav-link" to="/">홈</Link>
+                        <Link className="nav-link" to="/add">추가하기</Link>
+                    </Nav>
+                </Navbar.Collapse>
+                </Container>
+            </Navbar>
         </header>
         </>
     )

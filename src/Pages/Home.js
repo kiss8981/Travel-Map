@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
 import Map from '../utills/map';
 
 class home extends Component {
   render() {
     return (
       <>
-        <div>
-            map
             <Map/>
-        </div>
-    </>
+      </>
     );
   }
 }

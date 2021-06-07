@@ -1,0 +1,17 @@
+.addreport {
+    text-align: center;
+}
+
+.thumbnail {
+    border: 2px solid #ced4da;
+    border-radius: .9rem;
+    padding: 5px;
+    margin-top: 20px;
+    max-width: 70%;
+    max-height: 10%;
+}
+
+.title {
+    justify-content: center!important;
+    display: flex!important;
+}

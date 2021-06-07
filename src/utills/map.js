@@ -10,11 +10,10 @@ export default function Map() {
   const [mapView, setmapView] = useState(); 
   const [error, setError] = useState();
 
-  useEffect(async() => {
+  useEffect(() => {
     setLoading(true);
     setmapView(false)
-    const response = await axios.get('http://localhost:8080/getdata');
-    setconfirmData(response.data.data)
+
     setLoading(false);
     setmapView(true);
   }, []);
@@ -73,5 +72,5 @@ export default function Map() {
     }
   };
 
-  return <div id="map" className="flex flex-col text-black justify-center items-center text-center mb-5" style={{ width: "85%", height: "82vh", color: "black" }}></div>;
+  return <div id="map" className="flex flex-col text-black justify-center items-center text-center mb-5" style={{ width: "100%", height: "88vh", color: "black" }}></div>;
 }

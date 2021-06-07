@@ -5,17 +5,22 @@ import LogoImg from '../assets/logo192.png'
 const { kakao } = window;
 
 export default function Map() {
-  const [confirmData, setconfirmData] = useState({});
+  const [data, setData] = useState({});
   const [loading, setLoading] = useState();  
-  const [mapView, setmapView] = useState(); 
-  const [error, setError] = useState();
+  const [mapView, setmapView] = useState();
 
-  useEffect(() => {
+  const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'token': 'token'
+  }
+
+  useEffect(async() => {
     setLoading(true);
     setmapView(false)
-
+    const response = await axios.get(`http://audiscordbot.xyz:8081/api/data/${localStorage.getItem("user_id")}`, { headers });
+    setData(response.data)
     setLoading(false);
-    setmapView(true);
+    setmapView(true)
   }, []);
 
   if (loading) return (
@@ -42,17 +47,17 @@ export default function Map() {
     var clusterer = new kakao.maps.MarkerClusterer({
       map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체 
       averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정 
-      minLevel: 8 // 클러스터 할 최소 지도 레벨 
+      minLevel: 9 // 클러스터 할 최소 지도 레벨 
     });
     var makers = []
-    for (var i=0; i< confirmData.length; i++) {
-      var latlng = confirmData[i].latlng.split(',');
+    for (var i=0; i< data.length; i++) {
+      var latlng = data[i].latlng.split(',');
         var marker = new kakao.maps.Marker({
           position: new kakao.maps.LatLng(latlng[0], latlng[1]),
           map: map,
         })
         var infowindow = new kakao.maps.InfoWindow({
-          content: `<div>${confirmData[i]['place']}</div>`
+          content: `<div style="padding:5px;font-size:17px;">${data[i]['place_name']} <br/><img src="http://audiscordbot.xyz:8081${data[i]['img']}" style="max-width: 200px; max-height: 200px"/></div>`
         });
       makers.push(marker);
       kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
@@ -72,5 +77,5 @@ export default function Map() {
     }
   };
 
-  return <div id="map" className="flex flex-col text-black justify-center items-center text-center mb-5" style={{ width: "100%", height: "88vh", color: "black" }}></div>;
+  return <div id="map" style={{ width: "100%", height: "90vh", color: "black" }}></div>;
 }

@@ -6,7 +6,7 @@ class home extends Component {
   render() {
     return (
       <>
-        <Container>
+        <Container style={{marginBottom: "10%"}}>
             <h1 className="title mt-4 mb-4">여행기록 만들기</h1>
             <AddReport/>
         </Container>

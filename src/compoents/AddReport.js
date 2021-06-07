@@ -5,7 +5,6 @@ import AddReportMap from '../utills/AddReportMap'
 import { Link } from 'react-router-dom';
 
 function AddReport() {
-    const [user_id, setUser_id] = useState();
     const [place_name, setPlace_name] = useState();
     const [description, setDescription] = useState();
     const [visittime, setVisittime] = useState();
@@ -67,13 +66,16 @@ function AddReport() {
       const formData = new FormData();
       const headers = {
             'Access-Control-Allow-Origin': '*',
-            'token': 'kiss850501'
+            'token': 'token'
       }
       formData.append('img', file);
       formData.append('visittime', visittime);
       formData.append('place_name', place_name);
       formData.append('description', description);
       formData.append('latlng', `${document.getElementById('data-Y').innerText}, ${document.getElementById('data-X').innerText}`);
+      formData.append('user_id', localStorage.getItem("user_id"))
+      formData.append('user_email', localStorage.getItem("user_email"))
+      formData.append('user_name', localStorage.getItem("user_name"))
       // 서버의 upload API 호출
       const res = await axios.post("http://192.168.0.3:8081/api/data", formData, { headers });
       console.log(res);
@@ -85,8 +87,13 @@ function AddReport() {
     }
 
     return (
-        <>
-            <Form className="mb-3">
+        <>  
+            {localStorage.getItem("user_id") === null ? (
+                <div role="alert" id="uploadstatus-alert" className="alert alert-info" style={{marginTop: "8%", marginBottom: "40%"}}>로그인후 이용해주세요!</div>
+            ) : (
+                <>
+                <Form className="mb-3" id="summitform">
+                
                 <Form.Group className="mb-3">
                     <label className="form-label">* 장소이름</label>
                     <div>
@@ -133,6 +140,8 @@ function AddReport() {
                     <div role="alert" className="alert alert-info" style={{display: "none"}}><b>저장</b>이 완료되었습니다! </div>
                 )}
             </Form>
+            </>
+            )}
         </>
     );
 }

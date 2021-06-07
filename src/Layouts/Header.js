@@ -23,7 +23,7 @@ const Header = () => {
         <header>
             <Navbar bg="light" expand="lg">
                 <Container>
-                <Navbar.Brand href="/">여행기록</Navbar.Brand>
+                <Navbar.Brand href="/">기록으로 남기다</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">

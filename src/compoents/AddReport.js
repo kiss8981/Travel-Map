@@ -26,10 +26,6 @@ function AddReport() {
         setThumbnailShow(true)
     }
 
-    useEffect(() => {
-        console.log(searchPlace_name)
-      }, [searchPlace_name]);
-
     const onFindClick = (e) => {
         var readonlyplace = document.getElementById('readonlyplace')
         var readonlyimg = document.getElementById('readonlyimg')
@@ -77,8 +73,7 @@ function AddReport() {
       formData.append('user_email', localStorage.getItem("user_email"))
       formData.append('user_name', localStorage.getItem("user_name"))
       // 서버의 upload API 호출
-      const res = await axios.post("http://192.168.0.3:8081/api/data", formData, { headers });
-      console.log(res);
+      const res = await axios.post("https://travel.audiscordbot.xyz/api/data", formData, { headers });
       setUploadStatus(true)
       var uploadstatusAlert = document.getElementById('uploadstatus-alert')
       var uploadstatusButton = document.getElementById('uploadstatus-button')

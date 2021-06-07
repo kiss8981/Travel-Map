@@ -4,10 +4,10 @@ import { Navbar, Nav, Container } from 'react-bootstrap'
 import { GoogleLogin, GoogleLogout } from 'react-google-login'
 
 const responseGoogle = (response) => {
-    console.log(response)
     window.localStorage.setItem("user_id", response.googleId);
     window.localStorage.setItem("user_email", response.Ft.pu);
     window.localStorage.setItem("user_name", response.Ft.Ue);
+    window.location.reload();
   }
 
 const logout = () => {

@@ -17,7 +17,7 @@ export default function Map() {
   useEffect(async() => {
     setLoading(true);
     setmapView(false)
-    const response = await axios.get(`http://audiscordbot.xyz:8081/api/data/${localStorage.getItem("user_id")}`, { headers });
+    const response = await axios.get(`https://travel.audiscordbot.xyz/api/data/${localStorage.getItem("user_id")}`, { headers });
     setData(response.data)
     setLoading(false);
     setmapView(true)
@@ -27,7 +27,6 @@ export default function Map() {
     <div className="flex flex-col text-white justify-center items-center text-center" style={{marginBottom: "40%"}}>
         <div className="flex flex-row mb-5 justify-center mt-5 text-center">
         </div>
-        <img src={LogoImg} className="loding-img block h-8 w-8 justify-center items-center mb-3" alt="loding" />
         정보 불러오는중..
     </div>
     );
@@ -57,7 +56,7 @@ export default function Map() {
           map: map,
         })
         var infowindow = new kakao.maps.InfoWindow({
-          content: `<div style="padding:5px;font-size:17px;">${data[i]['place_name']} <br/><img src="http://audiscordbot.xyz:8081${data[i]['img']}" style="max-width: 200px; max-height: 200px"/></div>`
+          content: `<div style="padding:5px;font-size:17px;">${data[i]['place_name']} <br/><img src="https://travel.audiscordbot.xyz${data[i]['img']}" style="max-width: 200px; max-height: 200px"/></div>`
         });
       makers.push(marker);
       kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));

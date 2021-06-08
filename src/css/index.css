@@ -27,6 +27,7 @@ footer {
   color: white;
   align-items: center;
   text-align: center;
+  margin-left: auto;
 }
 
 dl, li, ol, ul {
@@ -64,7 +65,7 @@ li {
 
 .github_icon:hover {
   opacity: 100%;
-  transition: opacity 0.15s ease-in-out, opacity 0.15s ease-in-out;
+  transition: opacity 0.1s ease-in-out, opacity 0.1s ease-in-out;
 }
 
 .blog_icon {
@@ -79,5 +80,11 @@ li {
 
 .blog_icon:hover {
   opacity: 100%;
-  transition: opacity 0.15s ease-in-out, opacity 0.15s ease-in-out;
+  transition: opacity 0.1s ease-in-out, opacity 0.1s ease-in-out;
+}
+
+.footerlist {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
 }

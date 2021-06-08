@@ -1,0 +1,45 @@
+.user-info {
+    margin-top: 5%;
+}
+
+.profile {
+    margin-top: 5%;
+    margin-bottom: 15%;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
+.user-share {
+    margin-top: 20px;
+}
+
+.share-logo {
+    margin-left: 20px;
+}
+
+.share-logo-link {
+    opacity: 60%;
+}
+
+.share-logo-link:hover {
+    opacity: 100%;
+    transition: opacity 0.05s ease-in-out, opacity 0.05s ease-in-out;
+}
+
+.share-logo-link:active {
+    opacity: 100%;
+    transition: opacity 0.05s ease-in-out, opacity 0.05s ease-in-out;
+}
+
+.share-logo-link:visited {
+    opacity: 100%;
+    transition: opacity 0.05s ease-in-out, opacity 0.05s ease-in-out;
+}

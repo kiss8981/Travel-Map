@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
 
-function VisitedList() {
+function VisitedList({userid}) {
   const [infoData, setInfoData] = useState([]);
   const [loading, setLoading] = useState();  
 
@@ -10,7 +10,9 @@ function VisitedList() {
     getListInfo();
   }, []);
 
-
+  const onClickTest = () => {
+      console.log(infoData)
+  }
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'token': 'token'
@@ -21,7 +23,7 @@ function VisitedList() {
         setInfoData(null);
         // loading 상태를 true 로 바꿉니다.
         setLoading(true);
-        const response = await axios.get(`https://travel.audiscordbot.xyz/api/data/${window.localStorage.getItem('user_id')}`, { headers });
+        const response = await axios.get(`https://travel.audiscordbot.xyz/api/data/${userid}`, { headers });
         setInfoData(response.data);
     } catch (error) { 
         console.log(error);

@@ -5,9 +5,12 @@ const Header = () => {
     return (
         <>
         <footer>
+            <ul className="footerlist">
             <Link className="nav-link footer-link" to="/">홈</Link>
             <Link className="nav-link footer-link" to="/list">목록</Link>
             <Link className="nav-link footer-link" to="/add">기록하기</Link>
+            <Link className="nav-link footer-link" to="/profile">프로필</Link>
+            </ul>
             <ul className="footer-social">
                 <li><a href="https://github.com/kiss8981"><img src='https://travel.audiscordbot.xyz/image/github_logo.svg' alt="github" className="github_icon"/></a></li>
                 <li><a href="https://kiss8981.github.io/"><img src='https://travel.audiscordbot.xyz/image/rss_logo.svg' alt="blog" className="blog_icon"/></a></li>

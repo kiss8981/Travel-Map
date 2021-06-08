@@ -31,22 +31,25 @@ const Header = () => {
                         <Link className="nav-link" to="/list">목록</Link>
                         <Link className="nav-link" to="/add">기록하기</Link>
                     </Nav>
+                    <Nav className="ml-auto" style={{marginLeft: "auto"}}>
+                    <Link className="nav-link" to="/profile" style={{marginRight:"10px"}}>내 정보</Link>
+                        {localStorage.getItem("user_id") === null ? (
+                            <GoogleLogin
+                            clientId='183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com'
+                            buttonText="로그인"
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                            cookiePolicy={'single_host_origin'}
+                            />
+                        ) : (
+                            <GoogleLogout
+                            clientId="183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com"
+                            buttonText="로그아웃"
+                            onLogoutSuccess={logout}
+                            />
+                        )}
+                    </Nav>
                 </Navbar.Collapse>
-                {localStorage.getItem("user_id") === null ? (
-                    <GoogleLogin
-                    clientId='183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com'
-                    buttonText="로그인"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                    cookiePolicy={'single_host_origin'}
-                    />
-                ) : (
-                    <GoogleLogout
-                    clientId="183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com"
-                    buttonText="로그아웃"
-                    onLogoutSuccess={logout}
-                    />
-                )}
                 </Container>
             </Navbar>
         </header>

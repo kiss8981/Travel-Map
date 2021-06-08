@@ -3,9 +3,7 @@ import { Container } from 'react-bootstrap'
 import VisitedList from '../compoents/VisitedList'
 
 class listVisted extends Component {
-
   render() {
-
     return (
       <>
             {localStorage.getItem("user_id") === null ? (

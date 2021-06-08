@@ -1,6 +1,4 @@
 /*global kakao */
-// eslint-disable-line no-unused-vars
-
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
 const { kakao } = window;

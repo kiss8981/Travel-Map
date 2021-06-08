@@ -24,22 +24,3 @@ hr {
 .share-logo {
     margin-left: 20px;
 }
-
-.share-logo-link {
-    opacity: 60%;
-}
-
-.share-logo-link:hover {
-    opacity: 100%;
-    transition: opacity 0.05s ease-in-out, opacity 0.05s ease-in-out;
-}
-
-.share-logo-link:active {
-    opacity: 100%;
-    transition: opacity 0.05s ease-in-out, opacity 0.05s ease-in-out;
-}
-
-.share-logo-link:visited {
-    opacity: 100%;
-    transition: opacity 0.05s ease-in-out, opacity 0.05s ease-in-out;
-}

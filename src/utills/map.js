@@ -54,7 +54,7 @@ export default function Map() {
           position: new kakao.maps.LatLng(latlng[0], latlng[1]),
           map: map,
         })
-        var iwContent = `<div style="padding:5px;font-size:17px;">${data[i]['place_name']} <br/><img src="https://travel.audiscordbot.xyz${data[i]['img']}" style="max-width: 200px; max-height: 200px"/></div>`,
+        var iwContent = `<div style="padding:5px;font-size:17px; text-align: center;">${data[i]['place_name']} <br/><img src="https://travel.audiscordbot.xyz${data[i]['img']}" style="max-width: 200px; max-height: 200px; border-radius: 10px; border: 2px solid black;"/><br/><a href="${data[i]['img']}">추가정보</a></div>`,
             iwRemoveable = true;
         var infowindow = new kakao.maps.InfoWindow({
           content: iwContent,

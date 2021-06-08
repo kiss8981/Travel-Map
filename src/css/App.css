@@ -75,6 +75,10 @@
     transition: all 1s ease-in;
 }
 
+.imagedes {
+    text-align: center;
+}
+
 
 @font-face {
     font-family: 'Cafe24Oneprettynight';

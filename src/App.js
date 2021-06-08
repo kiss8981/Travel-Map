@@ -7,6 +7,7 @@ import Add from './Pages/Add'
 import ListVisted from './Pages/List'
 import ListUser from './Pages/ListUser'
 import Profile from './Pages/Profile'
+import ImageDes from './Pages/imageDes'
 
 import Header from './Layouts/Header'
 import Footer from './Layouts/Footer'
@@ -21,6 +22,7 @@ function App() {
           <Route path="/list" component={ListVisted}/>
           <Route path="/lists/:userid" component={ListUser}/>
           <Route path="/profile" component={Profile}/>
+          <Route path="/image/:imageid" component={ImageDes}/>
         </Switch>
       <Footer />
   </BrowserRouter>

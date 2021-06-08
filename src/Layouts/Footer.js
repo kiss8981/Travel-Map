@@ -1,9 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import Github_logo from '../assets/github_logo.svg'
-import Rss_logo from '../assets/rss_logo.svg'
-
 const Header = () => {
     return (
         <>

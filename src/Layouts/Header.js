@@ -32,7 +32,6 @@ const Header = () => {
                         <Link className="nav-link" to="/add">기록하기</Link>
                     </Nav>
                     <Nav className="ml-auto" style={{marginLeft: "auto"}}>
-                    <Link className="nav-link" to="/profile" style={{marginRight:"10px"}}>내 정보</Link>
                         {localStorage.getItem("user_id") === null ? (
                             <GoogleLogin
                             clientId='183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com'
@@ -42,11 +41,14 @@ const Header = () => {
                             cookiePolicy={'single_host_origin'}
                             />
                         ) : (
+                            <>
+                            <Link className="nav-link" to="/profile" style={{marginRight:"10px"}}>내 정보</Link>
                             <GoogleLogout
                             clientId="183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com"
                             buttonText="로그아웃"
                             onLogoutSuccess={logout}
                             />
+                            </>
                         )}
                     </Nav>
                 </Navbar.Collapse>

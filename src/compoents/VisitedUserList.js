@@ -9,10 +9,7 @@ function VisitedList({userid}) {
   useEffect(() => {
     getListInfo();
   }, []);
-
-  const onClickTest = () => {
-      console.log(infoData)
-  }
+  
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'token': 'token'

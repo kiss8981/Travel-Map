@@ -4,9 +4,11 @@ import { Navbar, Nav, Container } from 'react-bootstrap'
 import { GoogleLogin, GoogleLogout } from 'react-google-login'
 
 const responseGoogle = (response) => {
-    window.localStorage.setItem("user_id", response.googleId);
-    window.localStorage.setItem("user_email", response.Ft.pu);
-    window.localStorage.setItem("user_name", response.Ft.Ue);
+    window.localStorage.setItem("user_id", response.profileObj.googleId);
+    window.localStorage.setItem("user_email", response.profileObj.email);
+    window.localStorage.setItem("user_name", response.profileObj.name);
+    window.localStorage.setItem("user_image", response.profileObj.imageUrl);
+    window.localStorage.setItem("user_token", response.profileObj.accessToken);
     window.location.reload();
   }
 
@@ -34,19 +36,19 @@ const Header = () => {
                     <Nav className="ml-auto" style={{marginLeft: "auto"}}>
                         {localStorage.getItem("user_id") === null ? (
                             <GoogleLogin
-                            clientId='183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com'
-                            buttonText="로그인"
-                            onSuccess={responseGoogle}
-                            onFailure={responseGoogle}
-                            cookiePolicy={'single_host_origin'}
+                                clientId='183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com'
+                                buttonText="로그인"
+                                onSuccess={responseGoogle}
+                                onFailure={responseGoogle}
+                                cookiePolicy={'single_host_origin'}
                             />
                         ) : (
                             <>
-                            <Link className="nav-link" to="/profile" style={{marginRight:"10px"}}>내 정보</Link>
+                            <Link className="nav-link" to="/profile" style={{marginRight:"15px", verticalAlign: "middle"}}>내 정보</Link>
                             <GoogleLogout
-                            clientId="183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com"
-                            buttonText="로그아웃"
-                            onLogoutSuccess={logout}
+                                clientId="183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com"
+                                buttonText="로그아웃"
+                                onLogoutSuccess={logout}
                             />
                             </>
                         )}

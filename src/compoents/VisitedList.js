@@ -30,13 +30,19 @@ function VisitedList() {
   };
 
   if (loading) return (
-    <div className="flex flex-col text-white justify-center items-center text-center" style={{marginBottom: "100%"}}>
-        <div className="flex flex-row mb-5 justify-center mt-5 text-center">
-        </div>
-        정보 불러오는중..
-    </div>
+    <h1 className="title" style={{marginTop: "20%", marginBottom: "24%"}}>등록된 정보가 없습니다!</h1>
     );
-  if (!infoData ) return null;
+  if (!infoData ) return (
+    <>
+      <h1 className="title" style={{marginTop: "20%", marginBottom: "24%"}}>등록된 정보가 없습니다!</h1>
+    </>
+  );
+
+  if (infoData.length === 0) return (
+    <>
+      <h1 className="title" style={{marginTop: "20%", marginBottom: "24%"}}>등록된 정보가 없습니다!</h1>
+    </>
+  )
 
   return (
         <>

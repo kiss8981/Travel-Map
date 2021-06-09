@@ -24,3 +24,20 @@ hr {
 .share-logo {
     margin-left: 20px;
 }
+
+.profile-img {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 19px;
+    width: 7%;
+    border-radius: 100px;
+}
+
+.nav-link {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.profile-h1 {
+    text-align: center;
+}

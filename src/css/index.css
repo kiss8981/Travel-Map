@@ -76,3 +76,8 @@ li {
   display: flex;
   justify-content: center;
 }
+
+.del-a {
+  text-align: center;
+  font-size: 20px;
+}

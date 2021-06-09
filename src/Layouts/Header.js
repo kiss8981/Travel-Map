@@ -8,7 +8,7 @@ const responseGoogle = (response) => {
     window.localStorage.setItem("user_email", response.profileObj.email);
     window.localStorage.setItem("user_name", response.profileObj.name);
     window.localStorage.setItem("user_image", response.profileObj.imageUrl);
-    window.localStorage.setItem("user_token", response.profileObj.accessToken);
+    window.localStorage.setItem("user_token", response.accessToken);
     window.location.reload();
   }
 

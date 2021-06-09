@@ -72,6 +72,7 @@ function AddReport() {
       formData.append('user_id', localStorage.getItem("user_id"))
       formData.append('user_email', localStorage.getItem("user_email"))
       formData.append('user_name', localStorage.getItem("user_name"))
+      formData.append('user_token', localStorage.getItem("user_token"))
       // 서버의 upload API 호출
       await axios.post("https://travel.audiscordbot.xyz/api/data", formData, { headers });
       setUploadStatus(true)

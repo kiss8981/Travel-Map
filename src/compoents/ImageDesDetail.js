@@ -1,7 +1,6 @@
 /*global kakao */
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
-import { Container } from "react-bootstrap";
 
 function VisitedList({imageid}) {
   const [infoData, setInfoData] = useState([]);

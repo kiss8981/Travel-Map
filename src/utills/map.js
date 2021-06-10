@@ -17,7 +17,7 @@ export default function Map() {
   useEffect(async() => {
     setLoading(true);
     setmapView(false)
-    const response = await axios.get(`https://travel.audiscordbot.xyz/api/data/${localStorage.getItem("user_id")}`, { headers });
+    const response = await axios.get(`https://travel.audiscordbot.xyz/api/data/${JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id}`, { headers });
     setData(response.data)
     setLoading(false);
     setmapView(true)

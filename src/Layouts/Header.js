@@ -4,20 +4,12 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
 const responseGoogle = (response) => {
-    window.localStorage.setItem("user_id", response.profileObj.googleId);
-    window.localStorage.setItem("user_email", response.profileObj.email);
-    window.localStorage.setItem("user_name", response.profileObj.name);
-    window.localStorage.setItem("user_image", response.profileObj.imageUrl);
-    window.localStorage.setItem("user_token", response.profileObj.googleId);
+    window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${response.profileObj.googleId}", "user_email": "${response.profileObj.email}", "user_name": "${response.profileObj.name}", "user_image": "${response.profileObj.imageUrl}", "user_token": "${response.profileObj.googleId}"}}`);
     window.location.reload();
   }
 
 const logout = () => {
-    window.localStorage.removeItem("user_id");
-    window.localStorage.removeItem("user_email");
-    window.localStorage.removeItem("user_name");
-    window.localStorage.removeItem("user_image");
-    window.localStorage.removeItem("user_token");
+    window.localStorage.removeItem("authenticated");
     window.location.reload();
   }
 
@@ -36,7 +28,7 @@ const Header = () => {
                         <Link className="nav-link" to="/add">기록하기</Link>
                     </Nav>
                     <Nav className="ml-auto" style={{marginLeft: "auto"}}>
-                        {localStorage.getItem("user_id") === null ? (
+                        {localStorage.getItem("authenticated") === null ? (
                             <GoogleLogin
                                 clientId="183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com"
                                 buttonText="로그인"
@@ -47,7 +39,7 @@ const Header = () => {
                         ) : (
                             <>
                             <Link className="nav-link" to="/profile" style={{verticalAlign: "middle"}}>내 정보</Link>
-                            <Link className="nav-link" to={'/lists/' + window.localStorage.getItem('user_id')} style={{marginRight:"15px", verticalAlign: "middle"}}>프로필</Link>
+                            <Link className="nav-link" to={'/lists/' + JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id} style={{marginRight:"15px", verticalAlign: "middle"}}>프로필</Link>
                             <GoogleLogout
                                 clientId="183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com"
                                 buttonText="로그아웃"

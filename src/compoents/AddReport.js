@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 function AddReport() {
     useEffect(() => {
-        document.getElementById('input-button').style.opacity = "70%"
+        document.getElementById('input-button').style.opacity = '70%'
       }, []);
 
     const [place_name, setPlace_name] = useState();
@@ -82,10 +82,10 @@ function AddReport() {
       formData.append('place_name', place_name);
       formData.append('description', description);
       formData.append('latlng', `${document.getElementById('data-Y').innerText}, ${document.getElementById('data-X').innerText}`);
-      formData.append('user_id', localStorage.getItem("user_id"))
-      formData.append('user_email', localStorage.getItem("user_email"))
-      formData.append('user_name', localStorage.getItem("user_name"))
-      formData.append('user_token', localStorage.getItem("user_token"))
+      formData.append('user_id', JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id)
+      formData.append('user_email', JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_email)
+      formData.append('user_name', JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_name)
+      formData.append('user_token', JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_token)
       // 서버의 upload API 호출
       await axios.post("https://travel.audiscordbot.xyz/api/data", formData, { headers });
       setUploadStatus(true)
@@ -97,8 +97,11 @@ function AddReport() {
 
     return (
         <>  
-            {localStorage.getItem("user_id") === null ? (
-                <div role="alert" id="uploadstatus-alert" className="alert alert-info" style={{marginTop: "8%", marginBottom: "40%"}}>로그인후 이용해주세요!</div>
+            {localStorage.getItem("authenticated") === null ? (
+                <>
+                <h1 className="title mb-5" style={{marginTop: "18%"}}>로그인시 정보를 추가할 수 있습니다!</h1>
+                <div id="input-button" style={{display: 'none'}}/>
+                </>
             ) : (
                 <>
                 <Form className="summitform mb-3" id="summitform">

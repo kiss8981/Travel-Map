@@ -23,11 +23,11 @@ class home extends Component {
   render() {
     return (
       <>
-            {localStorage.getItem("user_id") === null ? (
+            {localStorage.getItem("authenticated") === null ? (
               <>
               <Container>
                 <h1 className="title mb-5" style={{marginTop: "18%"}}>로그인시 정보를 확인할 수 있습니다!</h1>
-                <div className="adfit" style={{width: "80%",  margin: "11% auto"}}/>
+                <div className="adfit" style={{width: "80%",  margin: "15% auto"}}/>
               </Container>
               </>
             ) : (

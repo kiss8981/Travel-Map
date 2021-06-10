@@ -30,7 +30,7 @@ class DeleteButton extends React.Component {
         var Headers = {
             'Access-Control-Allow-Origin': '*',
             'token': 'token',
-            'user_token': window.localStorage.getItem('user_token')
+            'user_token': JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_token
           }
         const url = `https://travel.audiscordbot.xyz/api/data/${image_id}`
         fetch(url, {
@@ -45,12 +45,12 @@ class DeleteButton extends React.Component {
             <>
             <DialogButton className="del-a" variant="outlined" color="secondary" onClick={this.handleClickOpen} style={{marginBottom: "10px"}}>기록 삭제하기</DialogButton>
             <Dialog open={this.state.open} onClose={this.handleClose}>
-                <DialogTitle>
-                    삭제
+                <DialogTitle style={{textAlign: "center"}}>
+                기록삭제
                 </DialogTitle>
                 <DialogContent>
                     <Typography gutterBottom>
-                        선택한 기록이 삭제됩니다
+                        {this.props.place_name} 기록이 삭제됩니다
                     </Typography>
                 </DialogContent>
                 <DialogActions>

@@ -21,8 +21,9 @@ class listVisted extends Component {
   }
   render() {
     return (
-      <>
-            {localStorage.getItem("user_id") === null ? (
+      <>  
+      <h1 className="title mt-4 mb-4">나의 여행 기록지</h1>
+            {localStorage.getItem("authenticated") === null ? (
               <>
               <Container>
                 <h1 className="title mb-5" style={{marginTop: "18%"}}>로그인시 정보를 확인할 수 있습니다!</h1>
@@ -32,7 +33,6 @@ class listVisted extends Component {
             ) : (
             <>
             <Container>
-            <h1 className="title mt-4 mb-4">나의 여행 기록지</h1>
              <VisitedList/>
              <div className="adfit" style={{width: "100%", margin: "auto"}}/>
              </Container>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
@@ -13,7 +14,7 @@ function VisitedList() {
     setReload(true)
     setReload(false)
   }
-
+  
   useEffect(() => {
     getListInfo();
   }, []);
@@ -26,13 +27,14 @@ function VisitedList() {
     'Access-Control-Allow-Origin': '*',
     'token': 'token'
   }
-  const getListInfo = async () => { 
+
+  async function getListInfo() {
     try {
         // 요청이 시작 할 때에는 error 와 users 를 초기화하고
         setInfoData(null);
         // loading 상태를 true 로 바꿉니다.
         setLoading(true);
-        const response = await axios.get(`https://travel.audiscordbot.xyz/api/data/${window.localStorage.getItem('user_id')}`, { headers });
+        const response = await axios.get(`https://travel.audiscordbot.xyz/api/data/${JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id}`, { headers });
         setInfoData(response.data);
     } catch (error) { 
         console.log(error);
@@ -40,20 +42,21 @@ function VisitedList() {
     setLoading(false);
   };
 
+
   if (loading) return (
       <>
-        <h1 className="title" style={{marginTop: "30%", marginBottom: "40%"}}><CircularProgress color="secondary" style={{marginRight: "20px", marginTop: "auto", marginBottom: "auto"}}/> 로딩중...</h1>
+        <h1 className="title" style={{marginTop: "20%", marginBottom: "25%"}}><CircularProgress color="secondary" style={{marginRight: "20px", marginTop: "auto", marginBottom: "auto"}}/> 로딩중...</h1>
       </>
     );
   if (!infoData ) return (
     <>
-      <h1 className="title" style={{marginTop: "30%", marginBottom: "40%"}}>등록된 정보가 없습니다!</h1>
+      <h1 className="title" style={{marginTop: "20%", marginBottom: "25%"}}>등록된 기록이 없습니다!<Link to="/add">여기</Link>에서 기록을 남겨보세요!</h1>
     </>
   );
 
   if (infoData.length === 0) return (
     <>
-      <h1 className="title" style={{marginTop: "30%", marginBottom: "40%"}}>등록된 정보가 없습니다!</h1>
+      <h1 className="title" style={{marginTop: "20%", marginBottom: "25%"}}>등록된 기록이 없습니다!&nbsp;<Link to="/add" style={{textDecoration: "none"}} >여기</Link> 에서 기록을 남겨보세요!</h1>
     </>
   )
 
@@ -68,7 +71,7 @@ function VisitedList() {
                             <p>{description}</p>
                             <p className="text-gray"><i className="fas fa-clock"></i> {visittime}</p>
                         </div>
-                        <DeleteButton image_id={img.replace("/image/","")} stateReload={getListReload}/>
+                        <DeleteButton image_id={img.replace("/image/","")} place_name={place_name} stateReload={getListReload}/>
                   </div>
             ))}
         </div>

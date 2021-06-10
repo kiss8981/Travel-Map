@@ -4,7 +4,6 @@ import { Navbar, Nav, Container } from 'react-bootstrap'
 import { GoogleLogin, GoogleLogout } from 'react-google-login'
 
 const responseGoogle = (response) => {
-    console.log(response)
     window.localStorage.setItem("user_id", response.profileObj.googleId);
     window.localStorage.setItem("user_email", response.profileObj.email);
     window.localStorage.setItem("user_name", response.profileObj.name);

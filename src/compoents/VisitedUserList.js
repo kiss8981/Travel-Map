@@ -1,6 +1,7 @@
 /*global kakao */
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 function VisitedList({userid}) {
   const [infoData, setInfoData] = useState([]);
@@ -29,7 +30,9 @@ function VisitedList({userid}) {
   };
 
   if (loading) return (
-    <h1 className="title" style={{marginTop: "30%", marginBottom: "40%"}}>로딩중...</h1>
+      <>
+        <h1 className="title" style={{marginTop: "30%", marginBottom: "40%"}}><CircularProgress color="secondary" style={{marginRight: "20px", marginTop: "auto", marginBottom: "auto"}}/> 로딩중...</h1>
+      </>
     );
   if (!infoData ) return (
     <>

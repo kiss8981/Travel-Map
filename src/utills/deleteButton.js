@@ -1,5 +1,31 @@
 import React from 'react'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogTitle from '@material-ui/core/DialogTitle'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogButton from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography'
 class DeleteButton extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false
+        }
+    }
+
+    handleClickOpen = () => {
+        this.setState({
+            open: true
+        })
+    }
+
+    handleClose = () => {
+        this.setState({
+            open: false
+        })
+    }
+
     deleteData(image_id){
         var Headers = {
             'Access-Control-Allow-Origin': '*',
@@ -17,7 +43,21 @@ class DeleteButton extends React.Component {
     render() {
         return (
             <>
-            <a className="del-a" onClick={(e) => {this.deleteData(this.props.image_id)}}>기록 삭제하기</a>
+            <a className="del-a" onClick={this.handleClickOpen}>기록 삭제하기</a>
+            <Dialog open={this.state.open} onClose={this.handleClose}>
+                <DialogTitle>
+                    삭제
+                </DialogTitle>
+                <DialogContent>
+                    <Typography gutterBottom>
+                        선택한 기록이 삭제됩니다
+                    </Typography>
+                </DialogContent>
+                <DialogActions>
+                    <DialogButton variant="contained" color="secondary" onClick={(e) => {this.deleteData(this.props.image_id)}}>삭제</DialogButton>
+                    <DialogButton variant="outlined" color="secondary" onClick={this.handleClose}>취소</DialogButton>
+                </DialogActions>
+            </Dialog>
             </>
         )
     }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 import DeleteButton from "../utills/deleteButton";
 
@@ -12,7 +13,6 @@ function VisitedList() {
     setReload(true)
     setReload(false)
   }
-
 
   useEffect(() => {
     getListInfo();
@@ -41,7 +41,9 @@ function VisitedList() {
   };
 
   if (loading) return (
-    <h1 className="title" style={{marginTop: "30%", marginBottom: "40%"}}>로딩중...</h1>
+      <>
+        <h1 className="title" style={{marginTop: "30%", marginBottom: "40%"}}><CircularProgress color="secondary" style={{marginRight: "20px", marginTop: "auto", marginBottom: "auto"}}/> 로딩중...</h1>
+      </>
     );
   if (!infoData ) return (
     <>
@@ -57,19 +59,17 @@ function VisitedList() {
 
   return (
         <>
-        <div key="card" className="card-list">
+        <div className="card-list">
             {infoData.map(({ place_name, description, visittime, img }) => (
-              <>
                   <div key={img} className="card-list-sub">
-                    <img key={img + 'img'} src={'https://travel.audiscordbot.xyz' + img} alt='img' className="card-img"/>
-                        <div key={img + 'card'} className="card-container">
+                    <img src={'https://travel.audiscordbot.xyz' + img} alt='img' className="card-img"/>
+                        <div className="card-container">
                             <h4><b>{place_name}</b></h4> 
                             <p>{description}</p>
                             <p className="text-gray"><i className="fas fa-clock"></i> {visittime}</p>
                         </div>
                         <DeleteButton image_id={img.replace("/image/","")} stateReload={getListReload}/>
                   </div>
-              </>
             ))}
         </div>
         

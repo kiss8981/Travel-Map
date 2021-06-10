@@ -1,6 +1,6 @@
-/*global kakao */
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 function VisitedList({imageid}) {
   const [infoData, setInfoData] = useState([]);
@@ -29,11 +29,9 @@ function VisitedList({imageid}) {
   };
 
   if (loading) return (
-    <div className="flex flex-col text-white justify-center items-center text-center" style={{marginBottom: "100%"}}>
-        <div className="flex flex-row mb-5 justify-center mt-5 text-center">
-        </div>
-        정보 불러오는중..
-    </div>
+      <>
+        <h1 className="title" style={{marginTop: "30%", marginBottom: "40%"}}><CircularProgress color="secondary" style={{marginRight: "20px", marginTop: "auto", marginBottom: "auto"}}/> 로딩중...</h1>
+      </>
     );
   if (!infoData ) return null;
 

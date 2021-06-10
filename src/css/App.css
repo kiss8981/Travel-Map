@@ -92,12 +92,6 @@
 .input-button {
     opacity: 70%;
 }
-.input-button:hover {
-    opacity: 100%;
-}
-.input-button:active {
-    opacity: 100%;
-}
 
 
 @font-face {

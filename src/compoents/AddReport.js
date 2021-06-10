@@ -59,6 +59,14 @@ function AddReport() {
         setDescription(e.target.value)
     }
 
+    const onMouseHover = (e) => {
+        document.getElementById('input-button').style.opacity = "100%"
+    }
+
+    const onMouseOut = (e) => {
+        document.getElementById('input-button').style.opacity = "70%"
+    }
+
     const onClickUpload = async () => {
       const formData = new FormData();
       const headers = {
@@ -99,7 +107,7 @@ function AddReport() {
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <label className="form-label"><i className="far fa-image"></i> 사진</label><br/>
-                    <label className="input-file-button" id="readonlyimg" for="input-file"><div className="input-button"><i className="fas fa-upload" style={{marginRight: "5px"}}></i>사진 업로드</div></label>
+                    <label className="input-file-button" id="readonlyimg" for="input-file"><div className="input-button" id="input-button" onMouseEnter={onMouseHover} onMouseLeave={onMouseOut}><i className="fas fa-upload" style={{marginRight: "5px"}}></i>사진 업로드</div></label>
                     <input style={{display: "none"}} id="input-file" className="input-group-prepend" type="file" accept='image/*' onChange={onChangeFile}/>
                     {thumbnailShow === true ? (
                         <div id="image_container"></div>

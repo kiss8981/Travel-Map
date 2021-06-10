@@ -1,4 +1,3 @@
-/*global kakao */
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import CircularProgress from '@material-ui/core/CircularProgress'

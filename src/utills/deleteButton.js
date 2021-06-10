@@ -11,7 +11,8 @@ class DeleteButton extends React.Component {
         fetch(url, {
             method: 'DELETE',
             headers: Headers
-        }).then(window.location.reload())
+        }).then(this.props.stateReload)
+        .catch(error => console.error('Error:', error));
       }
     
     render() {

@@ -4,11 +4,12 @@ import { Navbar, Nav, Container } from 'react-bootstrap'
 import { GoogleLogin, GoogleLogout } from 'react-google-login'
 
 const responseGoogle = (response) => {
+    console.log(response)
     window.localStorage.setItem("user_id", response.profileObj.googleId);
     window.localStorage.setItem("user_email", response.profileObj.email);
     window.localStorage.setItem("user_name", response.profileObj.name);
     window.localStorage.setItem("user_image", response.profileObj.imageUrl);
-    window.localStorage.setItem("user_token", response.accessToken);
+    window.localStorage.setItem("user_token", response.profileObj.googleId);
     window.location.reload();
   }
 
@@ -16,6 +17,8 @@ const logout = () => {
     window.localStorage.removeItem("user_id");
     window.localStorage.removeItem("user_email");
     window.localStorage.removeItem("user_name");
+    window.localStorage.removeItem("user_image");
+    window.localStorage.removeItem("user_token");
     window.location.reload();
   }
 

@@ -23,11 +23,7 @@ export default function Map() {
   }, []);
 
   if (loading) return (
-    <div className="flex flex-col text-white justify-center items-center text-center" style={{marginBottom: "40%"}}>
-        <div className="flex flex-row mb-5 justify-center mt-5 text-center">
-        </div>
-        정보 불러오는중..
-    </div>
+    <h1 className="title" style={{marginTop: "20%", marginBottom: "25%"}}>로딩중...</h1>
     );
 
   if (mapView) {
@@ -71,5 +67,5 @@ export default function Map() {
     }
   };
 
-  return <div id="map" style={{ width: "100%", height: "90vh", color: "black" }}></div>;
+  return <div id="map" style={{ width: "100%", height: "94vh", color: "black" }}></div>;
 }

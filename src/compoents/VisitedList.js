@@ -1,16 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 import DeleteButton from "../utills/deleteButton";
 
 function VisitedList() {
   const [infoData, setInfoData] = useState([]);
-  const [loading, setLoading] = useState();  
+  const [loading, setLoading] = useState();
+  const [reload, setReload] = useState(false);
+
+  const getListReload = () => {
+    setReload(true)
+    setReload(false)
+  }
+
 
   useEffect(() => {
     getListInfo();
   }, []);
+
+  useEffect(() => {
+    getListInfo();
+  }, [reload]);
 
   const headers = {
     'Access-Control-Allow-Origin': '*',
@@ -31,7 +41,7 @@ function VisitedList() {
   };
 
   if (loading) return (
-    <h1 className="title" style={{marginTop: "30%", marginBottom: "40%"}}>등록된 정보가 없습니다!</h1>
+    <h1 className="title" style={{marginTop: "30%", marginBottom: "40%"}}>로딩중...</h1>
     );
   if (!infoData ) return (
     <>
@@ -51,13 +61,13 @@ function VisitedList() {
             {infoData.map(({ place_name, description, visittime, img }) => (
               <>
                   <div key={img} className="card-list-sub">
-                    <img src={"https://travel.audiscordbot.xyz" + img} alt='img' className="card-img"/>
-                        <div className="card-container">
+                    <img key={img + 'img'} src={"https://travel.audiscordbot.xyz" + img} alt='img' className="card-img"/>
+                        <div key={img + 'card'} className="card-container">
                             <h4><b>{place_name}</b></h4> 
                             <p>{description}</p>
                             <p className="text-gray"><i className="fas fa-clock"></i> {visittime}</p>
                         </div>
-                        <DeleteButton image_id={img.replace("/image/","")}/>
+                        <DeleteButton image_id={img.replace("/image/","")} stateReload={getListReload}/>
                   </div>
               </>
             ))}

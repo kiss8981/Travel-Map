@@ -61,7 +61,7 @@ function VisitedList() {
             {infoData.map(({ place_name, description, visittime, img }) => (
               <>
                   <div key={img} className="card-list-sub">
-                    <img key={img + 'img'} src={"https://travel.audiscordbot.xyz" + img} alt='img' className="card-img"/>
+                    <img key={img + 'img'} src={'https://travel.audiscordbot.xyz' + img} alt='img' className="card-img"/>
                         <div key={img + 'card'} className="card-container">
                             <h4><b>{place_name}</b></h4> 
                             <p>{description}</p>

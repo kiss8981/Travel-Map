@@ -1,6 +1,7 @@
 /*global kakao */
 import React, { useEffect, useState } from "react";
-import axios from 'axios'
+import axios from 'axios';
+
 const { kakao } = window;
 
 export default function Map() {

@@ -1,5 +1,4 @@
 import React from 'react'
-
 class DeleteButton extends React.Component {
     deleteData(image_id){
         var Headers = {

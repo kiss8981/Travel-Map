@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Navbar, Nav, Container } from 'react-bootstrap'
-import { GoogleLogin, GoogleLogout } from 'react-google-login'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
 const responseGoogle = (response) => {
     window.localStorage.setItem("user_id", response.profileObj.googleId);
@@ -38,7 +38,7 @@ const Header = () => {
                     <Nav className="ml-auto" style={{marginLeft: "auto"}}>
                         {localStorage.getItem("user_id") === null ? (
                             <GoogleLogin
-                                clientId='183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com'
+                                clientId="183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com"
                                 buttonText="로그인"
                                 onSuccess={responseGoogle}
                                 onFailure={responseGoogle}

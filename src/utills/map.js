@@ -30,7 +30,7 @@ export default function Map() {
   if (mapView) {
     let container = document.getElementById("map");
     let options = {
-      center: new kakao.maps.LatLng(35.807820, 127.945856),
+      center: new kakao.maps.LatLng(37.566826, 126.9786567),
       level: 12,
     };
     //map

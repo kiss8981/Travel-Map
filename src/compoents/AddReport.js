@@ -98,7 +98,7 @@ function AddReport() {
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <label className="form-label"><i className="far fa-image"></i> 사진</label>
-                    <input id="readonlyimg" style={{display: "block"}} className="input-group-prepend" type="file" accept='image/jpg,impge/png,image/jpeg' onChange={onChangeFile}/>
+                    <input id="readonlyimg" style={{display: "block"}} className="input-group-prepend" type="file" accept='image/jpg, image/png, image/jpeg' onChange={onChangeFile}/>
                     {thumbnailShow === true ? (
                         <div id="image_container"></div>
                     ) : (

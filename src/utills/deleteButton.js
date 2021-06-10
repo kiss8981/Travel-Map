@@ -43,7 +43,7 @@ class DeleteButton extends React.Component {
     render() {
         return (
             <>
-            <a className="del-a" onClick={this.handleClickOpen}>기록 삭제하기</a>
+            <DialogButton className="del-a" variant="outlined" color="secondary" onClick={this.handleClickOpen} style={{marginBottom: "10px"}}>기록 삭제하기</DialogButton>
             <Dialog open={this.state.open} onClose={this.handleClose}>
                 <DialogTitle>
                     삭제

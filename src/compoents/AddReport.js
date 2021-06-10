@@ -24,6 +24,7 @@ function AddReport() {
         }; 
         reader.readAsDataURL(event.target.files[0]); 
         setThumbnailShow(true)
+        document.getElementById('readonlyimg').style.display = "none";
     }
 
     const onFindClick = (e) => {
@@ -97,8 +98,9 @@ function AddReport() {
                     </div>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                    <label className="form-label"><i className="far fa-image"></i> 사진</label>
-                    <input id="readonlyimg" style={{display: "block"}} className="input-group-prepend" type="file" accept='image/jpg, image/png, image/jpeg' onChange={onChangeFile}/>
+                    <label className="form-label"><i className="far fa-image"></i> 사진</label><br/>
+                    <label className="input-file-button" id="readonlyimg" for="input-file"><div className="input-button"><i className="fas fa-upload" style={{marginRight: "5px"}}></i>사진 업로드</div></label>
+                    <input style={{display: "none"}} id="input-file" className="input-group-prepend" type="file" accept='image/*' onChange={onChangeFile}/>
                     {thumbnailShow === true ? (
                         <div id="image_container"></div>
                     ) : (

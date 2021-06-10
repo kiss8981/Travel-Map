@@ -67,6 +67,7 @@
 }
 
 .text-gray {
+    font-size: 18px;
     --tw-text-opacity: 1;
     color: rgba(156,163,175,var(--tw-text-opacity));
 }
@@ -77,6 +78,25 @@
 
 .imagedes {
     text-align: center;
+}
+
+
+.input-file-button {
+    border: 1px solid #ced4da;
+    width: 100%;
+    border-radius: .25rem;
+    padding: .375rem .75rem;
+    vertical-align: middle;
+}
+
+.input-button {
+    opacity: 70%;
+}
+.input-button:hover {
+    opacity: 100%;
+}
+.input-button:active {
+    opacity: 100%;
 }
 
 

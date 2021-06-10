@@ -40,7 +40,7 @@ function VisitedList({imageid}) {
           <div className="imagedes">
             <div className="card-list">
                 {infoData.map(({ place_name, description, visittime, img }) => (
-                  <>
+                  <div key={img}>
                         <img src={"https://travel.audiscordbot.xyz" + img} alt='img' className="card-img"/>
                             <div className="card-container">
                                 <h3><b>{place_name}</b></h3>
@@ -48,7 +48,7 @@ function VisitedList({imageid}) {
                                 <h3>{description}</h3>
                                 <p className="text-gray"><i className="fas fa-clock"></i> {visittime}</p>
                             </div>
-                  </>
+                  </div>
                 ))}
             </div>
           </div>

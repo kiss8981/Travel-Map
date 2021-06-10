@@ -26,11 +26,10 @@ hr {
 }
 
 .profile-img {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: 19px;
-    width: 7%;
-    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    margin-right: 10px;
 }
 
 .nav-link {
@@ -38,6 +37,14 @@ hr {
     margin-bottom: auto;
 }
 
+.profile-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .profile-h1 {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -32,7 +32,9 @@ class listUserVisted extends Component {
       <>
         <Container>
         <div className="profile">
-            <h1 className="profile-h1 mt-4 mb-4 "><img className="profile-img" src={localStorage.getItem("user_image")} alt='profile-img'/><b>{window.localStorage.getItem('user_name')}</b> 님의 프로필</h1>
+          <div className="profile-div">
+            <h1 className="profile-h1"><img className="profile-img" src={localStorage.getItem("user_image")} alt='profile-img'/>{window.localStorage.getItem('user_name')}님의 프로필</h1>
+            </div>
             <div className="user-info text-center">
                 <h2>이메일</h2>
                 <h4>{window.localStorage.getItem('user_email')}</h4>

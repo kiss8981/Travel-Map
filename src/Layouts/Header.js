@@ -46,7 +46,8 @@ const Header = () => {
                             />
                         ) : (
                             <>
-                            <Link className="nav-link" to="/profile" style={{marginRight:"15px", verticalAlign: "middle"}}>내 정보</Link>
+                            <Link className="nav-link" to="/profile" style={{verticalAlign: "middle"}}>내 정보</Link>
+                            <Link className="nav-link" to={'/lists/' + window.localStorage.getItem('user_id')} style={{marginRight:"15px", verticalAlign: "middle"}}>프로필</Link>
                             <GoogleLogout
                                 clientId="183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com"
                                 buttonText="로그아웃"

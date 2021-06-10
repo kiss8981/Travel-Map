@@ -109,7 +109,7 @@ function AddReport() {
                 <Form.Group className="mb-3">
                     <label className="form-label"><i className="fas fa-map-marked-alt"></i> 장소</label>
                     <div>
-                        <input id="readonlyplace" className="form-control" type="text" placeholder="장소이름" onChange={onPlace_name}/>
+                        <input id="readonlyplace" className="form-control" type="text" placeholder="정확한 장소명을 입력해주세요 예) 홍대 CGV(O) 홍대 영화관(X)" onChange={onPlace_name}/>
                     </div>
                 </Form.Group>
                 <Form.Group className="mb-3">

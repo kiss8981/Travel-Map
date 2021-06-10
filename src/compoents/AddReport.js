@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Form } from 'react-bootstrap';
 import AddReportMap from '../utills/AddReportMap'
 import { Link } from 'react-router-dom';
 
 function AddReport() {
+    useEffect(() => {
+        document.getElementById('input-button').style.opacity = "70%"
+      }, []);
+
     const [place_name, setPlace_name] = useState();
     const [description, setDescription] = useState();
     const [visittime, setVisittime] = useState();

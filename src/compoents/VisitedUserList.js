@@ -29,20 +29,27 @@ function VisitedList({userid}) {
   };
 
   if (loading) return (
-    <div className="flex flex-col text-white justify-center items-center text-center" style={{marginBottom: "100%"}}>
-        <div className="flex flex-row mb-5 justify-center mt-5 text-center">
-        </div>
-        정보 불러오는중..
-    </div>
+    <h1 className="title" style={{marginTop: "30%", marginBottom: "40%"}}>로딩중...</h1>
     );
-  if (!infoData ) return null;
+  if (!infoData ) return (
+    <>
+      <h1 className="title" style={{marginTop: "30%", marginBottom: "40%"}}>해당 유저의 정보가 없습니다!</h1>
+    </>
+  );
+
+  if (infoData.length === 0) return (
+    <>
+      <h1 className="title" style={{marginTop: "30%", marginBottom: "40%"}}>해당 유저의 정보가 없습니다!</h1>
+    </>
+  )
 
   return (
         <>
+        <h1 className="title mt-4 mb-4">{infoData[0].user_name}의 여행 기록지</h1>
         <div className="card-list">
             {infoData.map(({ place_name, description, visittime, img }) => (
                     <div key={img} className="card-list-sub">
-                    <img src={'https://travel.audiscordbot.xyz' + img} alt='img' style={{width: "21%"}} className="card-img"/>
+                    <img src={'https://travel.audiscordbot.xyz' + img} alt='img' className="card-img"/>
                         <div className="card-container">
                             <h4><b>{place_name}</b></h4> 
                             <p>{description}</p>

@@ -30,7 +30,8 @@ class DeleteButton extends React.Component {
         var Headers = {
             'Access-Control-Allow-Origin': '*',
             'token': 'token',
-            'user_token': JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_token
+            'user_token': JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_token,
+            'user_id': JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id
           }
         const url = `https://travel.audiscordbot.xyz/api/data/${image_id}`
         fetch(url, {

@@ -2,10 +2,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import axios from 'axios';
 
 const responseGoogle = (response) => {
-    window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${response.profileObj.googleId}", "user_email": "${response.profileObj.email}", "user_name": "${response.profileObj.name}", "user_image": "${response.profileObj.imageUrl}", "user_token": "${response.profileObj.googleId}"}}`);
-    window.location.reload();
+    async function getData() {
+        const userData = {
+            'user_id': response.profileObj.googleId,
+            'user_email': response.profileObj.email,
+            'user_name': response.profileObj.name
+        }
+        const headers = {
+            'Access-Control-Allow-Origin': '*',
+            'token': 'token'
+        }
+        console.log(userData)
+        var apiResponse = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${response.profileObj.googleId}`, userData, { headers });
+        window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${response.profileObj.googleId}", "user_email": "${response.profileObj.email}", "user_name": "${response.profileObj.name}", "user_image": "${response.profileObj.imageUrl}", "user_token": "${apiResponse.data.user_token}"}}`);
+        window.location.reload();
+    }
+    getData()
   }
 
 const logout = () => {

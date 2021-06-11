@@ -42,7 +42,7 @@ class listUserVisted extends Component {
             <>
               <div className="profile">
                 <div className="profile-div">
-                  <h1 className="profile-h1"><img className="profile-img" src={JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_image} alt='profile-img'/>{window.localStorage.getItem('user_name')}님의 프로필</h1>
+                  <h1 className="profile-h1"><img className="profile-img" src={JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_image} alt='profile-img'/>{JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_name}님의 프로필</h1>
                   </div>
                   <div className="user-info text-center">
                       <h2>이메일</h2>

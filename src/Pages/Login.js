@@ -63,9 +63,10 @@ class login extends Component {
       getData()
     }
 
-    const responseFail = () => {
-        window.location.reload();
+    const responseFail = (response) => {
+        console.log(response)
     }
+  
     return (
       <>
             <Container>

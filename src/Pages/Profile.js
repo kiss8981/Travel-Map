@@ -6,7 +6,7 @@ import '../css/profile.css'
 function share() {
   window.navigator.share({
     title: `${JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_name}님의 여행기록`, // 공유될 제목
-    text: '친구의 여행 기록을 더 자세히 확인해봐요!', // 공유될 설명
+    text: `${JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_name}님의 여행 기록을 확인해봐요!`, // 공유될 설명
     url: window.location.protocol + "//" + window.location.host + "/list/" +  JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id, // 공유될 URL
   });
 }

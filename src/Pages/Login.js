@@ -33,7 +33,6 @@ class login extends Component {
                 'Access-Control-Allow-Origin': '*',
                 'token': 'token'
             }
-            console.log(userData)
             var apiResponse = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${response.profileObj.googleId}`, userData, { headers });
             window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${response.profileObj.googleId}", "user_email": "${response.profileObj.email}", "user_name": "${response.profileObj.name}", "user_image": "${response.profileObj.imageUrl}", "user_token": "${apiResponse.data.user_token}"}}`);
             window.location.href = window.location.protocol + "//" + window.location.host;
@@ -42,7 +41,6 @@ class login extends Component {
       }
     
     const responseNaver = (naverUser) => {
-      console.log(naverUser)
       async function getData() {
           const userData = {
               'user_id': naverUser.id,
@@ -55,7 +53,6 @@ class login extends Component {
               'Access-Control-Allow-Origin': '*',
               'token': 'token'
           }
-          console.log(userData)
           var apiResponse = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${naverUser.id}`, userData, { headers });
           window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${naverUser.id}", "user_email": "${naverUser.email}", "user_name": "${naverUser.name}", "user_image": "${naverUser.profile_image}", "user_token": "${apiResponse.data.user_token}"}}`);
           window.location.href = window.location.protocol + "//" + window.location.host;
@@ -79,7 +76,7 @@ class login extends Component {
                     callbackUrl="https://travel-report.xyz/login"
                     render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/naverlogin.png" className="naver-login-image"></img></button>}
                     onSuccess={responseNaver}
-                    onFailure={(result) => console.error(result)}
+                    onFailure={responseFail}
                 />
                 <GoogleLogin
                     clientId="183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com"

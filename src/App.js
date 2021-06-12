@@ -8,6 +8,7 @@ import ListVisted from './Pages/List'
 import ListUser from './Pages/ListUser'
 import Profile from './Pages/Profile'
 import ImageDes from './Pages/imageDes'
+import UserMap from './Pages/UserMap'
 
 import Header from './Layouts/Header'
 import Footer from './Layouts/Footer'
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/add" component={Add}/>
           <Route path="/list" component={ListVisted}/>
           <Route path="/lists/:userid" component={ListUser}/>
+          <Route path="/map/:userid" component={UserMap}/>
           <Route path="/profile" component={Profile}/>
           <Route path="/image/:imageid" component={ImageDes}/>
         </Switch>

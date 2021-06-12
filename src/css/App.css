@@ -89,6 +89,10 @@
     vertical-align: middle;
 }
 
+.subtitle-map {
+    text-decoration-line: none;
+}
+
 
 @font-face {
     font-family: 'Cafe24Oneprettynight';

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import DialogButton from '@material-ui/core/Button'
 
 function VisitedList({userid}) {
   const [infoData, setInfoData] = useState([]);
@@ -28,6 +29,10 @@ function VisitedList({userid}) {
     setLoading(false);
   };
 
+  const openMapUser = () => {
+    window.location.href = window.location.protocol + "//" + window.location.host + "/map/" + userid;
+  }
+
   if (loading) return (
       <>
         <h1 className="title" style={{marginTop: "30%", marginBottom: "40%"}}><CircularProgress color="secondary" style={{marginRight: "20px", marginTop: "auto", marginBottom: "auto"}}/> 로딩중...</h1>
@@ -47,7 +52,8 @@ function VisitedList({userid}) {
 
   return (
         <>
-        <h1 className="title mt-4 mb-4">{infoData[0].user_name}의 여행 기록지</h1>
+        <h1 className="title mt-4 mb-4">{infoData[0].user_name}의 여행 기록지<DialogButton variant="outlined" color="default" style={{marginLeft: "20px"}} onClick={openMapUser}>지도로 보기</DialogButton></h1>
+        
         <div className="card-list">
             {infoData.map(({ place_name, description, visittime, img }) => (
                     <div key={img} className="card-list-sub">

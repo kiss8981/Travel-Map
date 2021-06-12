@@ -10,6 +10,14 @@ function twitterShare() {
     window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.protocol + "//" + window.location.host + "/lists/" + JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id));
 }
 
+function facebookShareMap() {
+  window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.protocol + "//" + window.location.host + "/map/" + JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id));
+}
+
+function twitterShareMap() {
+  window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.protocol + "//" + window.location.host + "/map/" + JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id));
+}
+
 class listUserVisted extends Component {
   componentDidMount() {
     let ins = document.createElement('ins');
@@ -51,12 +59,19 @@ class listUserVisted extends Component {
                       <h2>유저 ID</h2>
                       <h4>{JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id}</h4>
                       <hr style={{width: '60%'}}/>
-                      <h2>프로필 링크</h2>
-                      <h4>{window.location.protocol + "//" + window.location.host + "/lists/" + JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id}</h4>
+                      <h2>내 지도</h2>
+                      <h4><a href={window.location.protocol + "//" + window.location.host + "/map/" + JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id}>링크</a></h4>
+                      <hr style={{width: '60%'}}/>
+                      <h2>내 방문기록</h2>
+                      <h4><a href={window.location.protocol + "//" + window.location.host + "/lists/" + JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id}>링크</a></h4>
                   </div>
-                  <div className="user-share text-center">공유하기<br />
+                  <div className="user-share text-center">방문기록 공유하기<br />
                       <a className="share-logo-link" onClick={facebookShare} href=""><i className="fab fa-facebook" style={{marginTop: '10px'}}></i> 페이스북</a>
                       <a className="share-logo share-logo-link" onClick={twitterShare} href=""><i className="fab fa-twitter"></i> 트위터</a>
+                  </div>
+                  <div className="user-share text-center">지도 공유하기<br />
+                      <a className="share-logo-link" onClick={facebookShareMap} href=""><i className="fab fa-facebook" style={{marginTop: '10px'}}></i> 페이스북</a>
+                      <a className="share-logo share-logo-link" onClick={twitterShareMap} href=""><i className="fab fa-twitter"></i> 트위터</a>
                   </div>
               </div>
             </>

@@ -36,41 +36,6 @@ dl, li, ol, ul {
   list-style: none;
 }
 
-ul {
-  margin: auto;
-  text-align: center;
-}
-
-li {
-  margin: 7px;
-  background-color: #ebebf0;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  display: inline-block;
-}
-
-
-.github_icon {
-  margin-top: 7px;
-  display: inline-block;
-  width: 35px;
-  height: 30px;
-  color: white;
-}
-
-.blog_icon {
-  margin-top: 7px;
-  margin-left: 1px;
-  display: inline-block;
-  width: 35px;
-  height: 30px;
-  color: white;
-}
-
 .footerlist {
   margin: 10px;
   display: flex;

@@ -19,7 +19,7 @@ function App() {
       <Header />
         <Switch>
           <Route exact path="/" component={Home}/>
-          <Route exact path="/add" component={Add}/>
+          <Route path="/add" component={Add}/>
           <Route path="/list" component={ListVisted}/>
           <Route path="/lists/:userid" component={ListUser}/>
           <Route path="/map/:userid" component={UserMap}/>

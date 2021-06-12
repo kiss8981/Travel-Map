@@ -16,7 +16,7 @@ function openMapUser() {
 }
 
 function openListUser(){
-  window.location.href = window.location.protocol + "//" + window.location.host + "/list/" +  JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id;
+  window.location.href = window.location.protocol + "//" + window.location.host + "/lists/" +  JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id;
 }
 
 class listUserVisted extends Component {

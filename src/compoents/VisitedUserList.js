@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import DialogButton from '@material-ui/core/Button'
+import { Container } from 'react-bootstrap'
 
 function VisitedList({userid}) {
   const [infoData, setInfoData] = useState([]);
@@ -52,7 +53,10 @@ function VisitedList({userid}) {
 
   return (
         <>
-        <h1 className="title mt-4 mb-4">{infoData[0].user_name}의 여행 기록지<DialogButton variant="outlined" color="default" style={{marginLeft: "20px"}} onClick={openMapUser}>지도로 보기</DialogButton></h1>
+        <h1 className="title mt-4 mb-4">{infoData[0].user_name}의 여행 기록지</h1>
+        <div className="sub-title-button">
+          <DialogButton variant="outlined" color="default" onClick={openMapUser}>지도로 보기</DialogButton>
+        </div>
         
         <div className="card-list">
             {infoData.map(({ place_name, description, visittime, img }) => (

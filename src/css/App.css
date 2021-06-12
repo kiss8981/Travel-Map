@@ -16,6 +16,12 @@
     display: flex!important;
 }
 
+.sub-title-button {
+    justify-content: center!important;
+    display: flex!important;
+}
+
+
 .footer-link {
     color: white;
 }

@@ -63,8 +63,8 @@ class login extends Component {
       getData()
     }
 
-    const responseFail = (response) => {
-        console.log(response)
+    const responseFail = () => {
+      window.location.href = window.location.protocol + "//" + window.location.host;
     }
   
     return (

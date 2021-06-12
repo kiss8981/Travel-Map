@@ -9,6 +9,7 @@ import ListUser from './Pages/ListUser'
 import Profile from './Pages/Profile'
 import ImageDes from './Pages/imageDes'
 import UserMap from './Pages/UserMap'
+import Login from './Pages/Login'
 
 import Header from './Layouts/Header'
 import Footer from './Layouts/Footer'
@@ -25,6 +26,7 @@ function App() {
           <Route path="/map/:userid" component={UserMap}/>
           <Route path="/profile" component={Profile}/>
           <Route path="/image/:imageid" component={ImageDes}/>
+          <Route path="/login" component={Login}/>
         </Switch>
       <Footer />
   </BrowserRouter>

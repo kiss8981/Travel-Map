@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import Map from '../utills/map';
 
@@ -26,8 +27,11 @@ class home extends Component {
             {localStorage.getItem("authenticated") === null ? (
               <>
               <Container>
-                <h1 className="title mb-5" style={{marginTop: "18%"}}>로그인시 정보를 확인할 수 있습니다!</h1>
-                <div className="adfit" style={{width: "80%",  margin: "15% auto"}}/>
+                <h1 className="title" style={{marginTop: "20%", marginBottom: "20px"}}>로그인시 정보를 확인할 수 있습니다!</h1>
+                <div className="sub-title-button">
+                  <Link className="logout-button" to="/login" style={{marginBottom: "25%"}}>로그인</Link>
+                </div>
+                <div className="adfit" style={{width: "100%"}}/>
               </Container>
               </>
             ) : (

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import VisitedList from '../compoents/VisitedList'
 import DialogButton from '@material-ui/core/Button'
 
@@ -32,19 +33,22 @@ class listVisted extends Component {
     return (
       <>  
       <h1 className="title mt-4 mb-4">나의 여행 기록지</h1>
-      <div className="sub-title-button">
-          <DialogButton variant="outlined" color="default" onClick={this.share}>나의 여행기록 공유하기</DialogButton>
-        </div>
             {localStorage.getItem("authenticated") === null ? (
               <>
               <Container>
                 <h1 className="title mb-5" style={{marginTop: "18%"}}>로그인시 정보를 확인할 수 있습니다!</h1>
-                <div className="adfit" style={{width: "80%",  margin: "11% auto"}}/>
+                <div className="sub-title-button">
+                <Link className="logout-button" to="/login" style={{marginBottom: "15%"}}>로그인</Link>
+                </div>
+                <div className="adfit" style={{width: "80%",  margin: "0% auto"}}/>
               </Container>
               </>
             ) : (
             <>
             <Container>
+            <div className="sub-title-button">
+              <DialogButton variant="outlined" color="default" onClick={this.share}>나의 여행기록 공유하기</DialogButton>
+            </div>
              <VisitedList/>
              <div className="adfit" style={{width: "100%", margin: "auto"}}/>
              </Container>

@@ -100,6 +100,9 @@ function AddReport() {
             {localStorage.getItem("authenticated") === null ? (
                 <>
                 <h1 className="title mb-5" style={{marginTop: "18%"}}>로그인시 정보를 추가할 수 있습니다!</h1>
+                <div className="sub-title-button">
+                  <Link className="logout-button" to="/login" style={{marginBottom: "15%"}}>로그인</Link>
+                </div>
                 <div id="input-button" style={{display: 'none'}}/>
                 </>
             ) : (

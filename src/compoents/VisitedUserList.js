@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import DialogButton from '@material-ui/core/Button'
-import { Container } from 'react-bootstrap'
 
 function VisitedList({userid}) {
   const [infoData, setInfoData] = useState([]);

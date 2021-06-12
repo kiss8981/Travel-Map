@@ -25,7 +25,7 @@ class listVisted extends Component {
     window.navigator.share({
       title: `${JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_name}님의 여행기록`, // 공유될 제목
       text: `${JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_name}님의 여행 기록을 확인해봐요!`, // 공유될 설명
-      url: window.location.protocol + "//" + window.location.host + "/list/" +  JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id, // 공유될 URL
+      url: window.location.protocol + "//" + window.location.host + "/lists/" +  JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id, // 공유될 URL
     });
   }
   render() {

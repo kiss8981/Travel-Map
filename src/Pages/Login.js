@@ -75,7 +75,7 @@ class login extends Component {
                 <div className="login">
                 <NaverLogin 
                     clientId="Y7TSJ0r__scAdoqud_Si"
-                    callbackUrl="http://localhost:8080/login"
+                    callbackUrl="https://travel-report.xyz/login"
                     render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/naverlogin.png" className="naver-login-image"></img></button>}
                     onSuccess={responseNaver}
                     onFailure={(result) => console.error(result)}

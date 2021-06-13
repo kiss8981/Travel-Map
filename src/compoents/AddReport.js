@@ -145,7 +145,7 @@ function AddReport() {
                     </>
                 ) : (
                     <>
-                    <button style={{ marginTop:"5px", marginBottom:"10px" }} className="btn btn-secondary" type="button" onClick={onFindClick}>조회</button>
+                    <button style={{ marginTop:"5px", marginBottom:"10px", backgroundColor: 'white', color: "black", border: "1px solid #ced4da"}} className="btn btn-secondary" type="button" onClick={onFindClick}>조회</button>
                     <div role="alert" className="alert alert-info">장소를 조회해주세요</div>
                     <div role="alert" id="necessary-par" className="alert alert-warning" style={{display: "none"}}>필수 입력란을 입력해 주세요</div>
                     </>

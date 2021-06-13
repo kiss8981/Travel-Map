@@ -47,7 +47,7 @@ class listVisted extends Component {
             <>
             <Container>
             <div className="sub-title-button">
-              <DialogButton variant="contained" color="default" onClick={this.share}>나의 여행기록 공유하기</DialogButton>
+              <DialogButton variant="contained" color="default" style={{backgroundColor: 'white'}} onClick={this.share}>나의 여행기록 공유하기</DialogButton>
             </div>
              <VisitedList/>
              <div className="adfit" style={{width: "100%", margin: "auto"}}/>

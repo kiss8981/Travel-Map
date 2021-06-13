@@ -54,7 +54,7 @@ function VisitedList({userid}) {
         <>
         <h1 className="title mt-4 mb-4">{infoData[0].user_name}의 여행 기록지</h1>
         <div className="sub-title-button">
-          <DialogButton variant="contained" color="default" onClick={openMapUser}>지도로 보기</DialogButton>
+          <DialogButton variant="contained" onClick={openMapUser} style={{backgroundColor: 'white'}}>지도로 보기</DialogButton>
         </div>
         
         <div className="card-list">

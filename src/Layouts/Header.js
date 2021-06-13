@@ -11,7 +11,7 @@ const Header = () => {
     return (
         <>
         <header>
-            <Navbar bg="light" expand="lg">
+            <Navbar style={{backgroundColor: "white"}} expand="lg">
                 <Container>
                 <Navbar.Brand href="/">기록으로 남기다</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

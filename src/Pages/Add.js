@@ -25,7 +25,7 @@ class home extends Component {
         <Container>
             <h1 className="title mt-4 mb-4">여행기록 만들기</h1>
             <AddReport/>
-            <div className="adfit" style={{width: "100%",  margin: "0% auto"}}/>
+            <div className="adfit" style={{width: "100%",  margin: "2% auto"}}/>
         </Container>
 
     </>

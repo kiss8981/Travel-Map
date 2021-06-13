@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #BCEFFF url(https://travel.audiscordbot.xyz/image/background.jpg) repeat-x;
+  background-position:center bottom;
 }
 
 code {
@@ -23,8 +25,8 @@ code {
 
 footer {
   padding: 20px;
-  background-color: #1f2226;
-  color: white;
+  background-color: white;
+  color: black;
   align-items: center;
   text-align: center;
   margin-left: auto;

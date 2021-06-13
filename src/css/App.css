@@ -23,23 +23,23 @@
 
 
 .footer-link {
-    color: white;
+    color: black;
 }
 
 .footer-link:hover {
-    color: white;
+    color: black;
 }
 
 .footer-link:link {
-    color: white;
+    color: black;
 }
 
 .footer-link:active {
-    color: white;
+    color: black;
 }
 
 .footer-link:visited {
-    color: white;
+    color: black;
 }
 
 .card-list-sub {
@@ -51,6 +51,7 @@
     transition: 0.3s;
     width: 85%;
     border-radius: 10px;
+    background-color: white;
   }
 
 .card-list-sub:hover {
@@ -93,6 +94,7 @@
     border-radius: .25rem;
     padding: .375rem .75rem;
     vertical-align: middle;
+    background-color: white;
 }
 
 .subtitle-map {

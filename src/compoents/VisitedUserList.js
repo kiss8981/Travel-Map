@@ -40,13 +40,13 @@ function VisitedList({userid}) {
     );
   if (!infoData ) return (
     <>
-      <h1 className="title" style={{marginTop: "24%", marginBottom: "30%"}}>해당 유저의 정보가 없습니다!</h1>
+      <h1 className="title" style={{marginTop: "30vh", marginBottom: "35vh"}}>해당 유저의 정보가 없습니다!</h1>
     </>
   );
 
   if (infoData.length === 0) return (
     <>
-      <h1 className="title" style={{marginTop: "24%", marginBottom: "30%"}}>해당 유저의 정보가 없습니다!</h1>
+      <h1 className="title" style={{marginTop: "30vh", marginBottom: "35vh"}}>해당 유저의 정보가 없습니다!</h1>
     </>
   )
 

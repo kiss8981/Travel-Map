@@ -50,13 +50,19 @@ function VisitedList() {
     );
   if (!infoData ) return (
     <>
-      <h1 className="title" style={{marginTop: "20%", marginBottom: "25%"}}>등록된 기록이 없습니다!<Link to="/add">여기</Link>에서 기록을 남겨보세요!</h1>
+      <h1 className="title" style={{marginTop: "20vh"}}>등록된 기록이 없습니다!</h1>
+      <div className="sub-title-button">
+        <Link className="logout-button" to="/add" style={{textDecoration: "none", marginBottom: "30vh"}} >기록을 남겨보세요!</Link>
+      </div>
     </>
   );
 
   if (infoData.length === 0) return (
     <>
-      <h1 className="title" style={{marginTop: "20%", marginBottom: "25%"}}>등록된 기록이 없습니다!&nbsp;<Link to="/add" style={{textDecoration: "none"}} >여기</Link> 에서 기록을 남겨보세요!</h1>
+      <h1 className="title" style={{marginTop: "20vh"}}>등록된 기록이 없습니다!</h1>
+      <div className="sub-title-button">
+        <Link className="logout-button" to="/add" style={{textDecoration: "none", marginBottom: "30vh"}} >기록을 남겨보세요!</Link>
+      </div>
     </>
   )
 

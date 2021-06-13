@@ -69,7 +69,7 @@ class listUserVisted extends Component {
                       <DialogButton variant="contained" style={{backgroundColor: 'white'}} onClick={openMapUser}>지도보기</DialogButton>
                       <DialogButton variant="contained" style={{marginLeft: "15px", backgroundColor: 'white'}} onClick={openListUser}>방문 기록보기</DialogButton>
                       <br/>
-                      <DialogButton variant="contained" onClick={share} style={{marginTop: "10px", marginBottom: "10px", backgroundColor: 'white'}}><i class="fas fa-share-alt"></i>&nbsp;공유하기</DialogButton>
+                      <DialogButton variant="contained" onClick={share} style={{marginTop: "10px", marginBottom: "13vh", backgroundColor: 'white'}}><i class="fas fa-share-alt"></i>&nbsp;공유하기</DialogButton>
                   </div>
               </div>
             </>

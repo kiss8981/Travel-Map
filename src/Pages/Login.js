@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container } from 'react-bootstrap'
 import { GoogleLogin } from 'react-google-login';
 import NaverLogin from 'react-login-by-naver';
+import CircularProgress from '@material-ui/core/CircularProgress'
 import axios from 'axios';
 
 class login extends Component {
@@ -24,6 +25,8 @@ class login extends Component {
   render() {
     const responseGoogle = (response) => {
         async function getData() {
+            document.getElementById('login-class').style.display = "none"
+            document.getElementById('login-loding').style.display = "block"
             const userData = {
                 'user_id': response.profileObj.googleId,
                 'user_email': response.profileObj.email,
@@ -62,35 +65,38 @@ class login extends Component {
 
     const responseFail = (res) => {
       console.log(res)
-
     }
   
     return (
       <>
             <Container>
             <h1 className="title mt-4 mb-4">로그인</h1>
-
-            {localStorage.getItem("authenticated") === null ? (
-                <div className="login">
-                <NaverLogin 
-                    clientId="Y7TSJ0r__scAdoqud_Si"
-                    callbackUrl="https://travel-report.xyz/login"
-                    render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/naverlogin.png" className="naver-login-image"></img></button>}
-                    onSuccess={responseNaver}
-                    onFailure={responseFail}
-                />
-                <GoogleLogin
-                    clientId="183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com"
-                    render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/googlelogin.png" className="naver-login-image"></img></button>}
-                    onSuccess={responseGoogle}
-                    onFailure={responseFail}
-                    cookiePolicy={'single_host_origin'}
-                />
-                </div>
-            
-            ) : (
-                <h1 className="title" style={{marginBottom: "20%", marginTop: "20%"}}>이미 로그인되어 있습니다</h1>
-            )}
+            <div id="login-loding" style={{display: "none", marginTop: "30vh", marginBottom: "30vh"}}>
+              <h1 className="title"><CircularProgress color="secondary" style={{marginRight: "20px", marginTop: "auto", marginBottom: "auto"}}/> 로그인중...</h1>
+            </div>
+            <div id="login-class" style={{display: "block"}}>
+              {localStorage.getItem("authenticated") === null ? (
+                  <div className="login">
+                  <NaverLogin 
+                      clientId="Y7TSJ0r__scAdoqud_Si"
+                      callbackUrl="https://travel-report.xyz/login"
+                      render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/naverlogin.png" className="naver-login-image"></img></button>}
+                      onSuccess={responseNaver}
+                      onFailure={responseFail}
+                  />
+                  <GoogleLogin
+                      clientId="183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com"
+                      render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/googlelogin.png" className="naver-login-image"></img></button>}
+                      onSuccess={responseGoogle}
+                      onFailure={responseFail}
+                      cookiePolicy={'single_host_origin'}
+                  />
+                  </div>
+              
+              ) : (
+                  <h1 className="title" style={{marginBottom: "30vh", marginTop: "25vh"}}>이미 로그인되어 있습니다</h1>
+              )}
+            </div>
              <div className="adfit" style={{width: "100%", margin: "auto"}}/>
              </Container>
       </>

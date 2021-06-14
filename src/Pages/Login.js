@@ -45,6 +45,8 @@ class login extends Component {
     
     const responseNaver = (naverUser) => {
       async function getData() {
+          document.getElementById('login-class').style.display = "none"
+          document.getElementById('login-loding').style.display = "block"
           const userData = {
               'user_id': naverUser.id,
               'user_email': naverUser.email,

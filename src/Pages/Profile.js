@@ -32,7 +32,7 @@ class listUserVisted extends Component {
     scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
     ins.setAttribute('data-ad-width', '728');
     ins.setAttribute('data-ad-height', '90');
-    ins.setAttribute('data-ad-unit', 'DAN-oteeZ21L0udfdnx2');
+    ins.setAttribute('data-ad-unit', 'DAN-A4YGwiYEIbA7Q7Kh');
   
     document.querySelector('.adfit').appendChild(ins);
     document.querySelector('.adfit').appendChild(scr);

@@ -45,7 +45,7 @@ function VisitedList() {
 
   if (loading) return (
       <>
-        <h1 className="title" style={{marginTop: "20%", marginBottom: "25%"}}><CircularProgress color="secondary" style={{marginRight: "20px", marginTop: "auto", marginBottom: "auto"}}/> 로딩중...</h1>
+        <h1 className="title" style={{marginTop: "20vh", marginBottom: "25vh"}}><CircularProgress color="secondary" style={{marginRight: "20px", marginTop: "auto", marginBottom: "auto"}}/> 로딩중...</h1>
       </>
     );
   if (!infoData ) return (

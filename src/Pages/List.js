@@ -36,11 +36,11 @@ class listVisted extends Component {
             {localStorage.getItem("authenticated") === null ? (
               <>
               <Container>
-                <h1 className="title mb-5" style={{marginTop: "18%"}}>로그인시 정보를 확인할 수 있습니다!</h1>
+                <h1 className="title mb-3" style={{marginTop: "30vh"}}>로그인시 정보를 확인할 수 있습니다!</h1>
                 <div className="sub-title-button">
-                <Link className="logout-button" to="/login" style={{marginBottom: "15%"}}>로그인</Link>
+                <Link className="logout-button" to="/login" style={{marginBottom: "20vh"}}>로그인</Link>
                 </div>
-                <div className="adfit" style={{width: "80%",  margin: "0% auto"}}/>
+                <div className="adfit" style={{width: "100%",  margin: "0% auto"}}/>
               </Container>
               </>
             ) : (

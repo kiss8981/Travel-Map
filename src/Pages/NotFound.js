@@ -23,9 +23,9 @@ class listUserVisted extends Component {
     return (
       <>
             <Container>
-                <h1 className="title mb-4" style={{marginTop: '20%'}}>찾을수 없는 페이지 입니다</h1>
+                <h1 className="title mb-4" style={{marginTop: '30vh'}}>찾을수 없는 페이지 입니다</h1>
                 <div className="sub-title-button">
-                    <Link className="logout-button" to="/" style={{marginBottom: "20%"}}>홈으로 돌아가기</Link>
+                    <Link className="logout-button" to="/" style={{marginBottom: "30vh"}}>홈으로 돌아가기</Link>
                 </div>
              <div className="adfit" style={{width: "100%", margin: "auto"}}/>
             </Container>

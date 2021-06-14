@@ -24,7 +24,7 @@ export default function UserMap({userid}) {
   }, []);
 
   if (loading) return (
-    <h1 className="title" style={{marginTop: "20%", marginBottom: "25%"}}>로딩중...</h1>
+    <h1 className="title" style={{marginTop: "30vh", marginBottom: "30vh"}}>로딩중...</h1>
     );
 
   if (mapView) {

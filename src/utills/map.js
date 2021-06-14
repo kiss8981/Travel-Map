@@ -24,7 +24,7 @@ export default function Map() {
   }, []);
 
   if (loading) return (
-    <h1 className="title" style={{marginTop: "20%", marginBottom: "25%"}}>로딩중...</h1>
+    <h1 className="title" style={{marginTop: "35vh", marginBottom: "35vh"}}>로딩중...</h1>
     );
 
   if (mapView) {

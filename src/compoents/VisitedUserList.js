@@ -35,7 +35,7 @@ function VisitedList({userid}) {
 
   if (loading) return (
       <>
-        <h1 className="title" style={{marginTop: "30%", marginBottom: "40%"}}><CircularProgress color="secondary" style={{marginRight: "20px", marginTop: "auto", marginBottom: "auto"}}/> 로딩중...</h1>
+        <h1 className="title" style={{marginTop: "30vh", marginBottom: "40vh"}}><CircularProgress color="secondary" style={{marginRight: "20px", marginTop: "auto", marginBottom: "auto"}}/> 로딩중...</h1>
       </>
     );
   if (!infoData ) return (

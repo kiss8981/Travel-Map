@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container } from 'react-bootstrap'
 import { GoogleLogin } from 'react-google-login';
 import NaverLogin from 'react-login-by-naver';
+import KakaoLogin from 'react-kakao-login';
 import CircularProgress from '@material-ui/core/CircularProgress'
 import axios from 'axios';
 
@@ -65,7 +66,38 @@ class login extends Component {
       getData()
     }
 
-    const responseFail = (res) => {
+    const responseKakao = (KakaoUser) => {
+      async function getData() {
+          document.getElementById('login-class').style.display = "none"
+          document.getElementById('login-loding').style.display = "block"
+          const userData = {
+              'user_id': KakaoUser.profile.id,
+              'user_email': KakaoUser.profile.kakao_account.email,
+              'user_name': KakaoUser.profile.kakao_account.profile.nickname
+          }
+          const headers = {
+              'Access-Control-Allow-Origin': '*',
+              'token': 'token'
+          }
+          var apiResponse = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${KakaoUser.profile.id}`, userData, { headers });
+          window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${KakaoUser.profile.id}", "user_email": "${KakaoUser.profile.kakao_account.email}", "user_name": "${KakaoUser.profile.kakao_account.profile.nickname}", "user_image": "${KakaoUser.profile.kakao_account.profile.profile_image_url}", "user_token": "${apiResponse.data.user_token}"}}`);
+          window.location.href = window.location.protocol + "//" + window.location.host;
+      }
+      getData()
+    }
+
+    const responseFailGoogle = (res) => {
+      alert('구글 로그인 오류발생 (이용불가)')
+      console.log(res)
+    }
+
+    const responseFailNaver = (res) => {
+      alert('네이버 로그인 오류발생 (이용불가)')
+      console.log(res)
+    }
+
+    const responseFailKakaoLogin = (res) => {
+      alert('카카오 로그인 오류발생 (이용불가)')
       console.log(res)
     }
   
@@ -84,14 +116,30 @@ class login extends Component {
                       callbackUrl="https://travel-report.xyz/login"
                       render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/naverlogin.png" className="naver-login-image"></img></button>}
                       onSuccess={responseNaver}
-                      onFailure={responseFail}
+                      onFailure={responseFailNaver}
                   />
                   <GoogleLogin
                       clientId="183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com"
                       render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/googlelogin.png" className="naver-login-image"></img></button>}
                       onSuccess={responseGoogle}
-                      onFailure={responseFail}
+                      onFailure={responseFailGoogle}
                       cookiePolicy={'single_host_origin'}
+                  />
+                  <KakaoLogin
+                    token="6fb2e2b96c7ddb5a37dc65c2caf25816"
+                    render={({ onClick }) => {
+                      return (
+                        <>
+                        <button className="social-login" onClick={(e) => {
+                          e.preventDefault();
+                          onClick();
+                        }}>
+                          <img src="https://travel.audiscordbot.xyz/image/kakaologin.png" className="naver-login-image"></img></button>
+                      </>
+                      );
+                    }}
+                    onSuccess={responseKakao}
+                    onFail={responseFailKakaoLogin}
                   />
                   </div>
               

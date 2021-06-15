@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap'
 import { GoogleLogin } from 'react-google-login';
 import NaverLogin from 'react-login-by-naver';
 import KakaoLogin from 'react-kakao-login';
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import axios from 'axios';
 
@@ -29,6 +30,7 @@ class login extends Component {
             document.getElementById('login-class').style.display = "none"
             document.getElementById('login-loding').style.display = "block"
             const userData = {
+                'type': 'GoogleUser',
                 'user_id': response.profileObj.googleId,
                 'user_email': response.profileObj.email,
                 'user_name': response.profileObj.name
@@ -49,6 +51,7 @@ class login extends Component {
           document.getElementById('login-class').style.display = "none"
           document.getElementById('login-loding').style.display = "block"
           const userData = {
+              'type': 'naverUser',
               'user_id': naverUser.id,
               'user_email': naverUser.email,
               'user_name': naverUser.name,
@@ -71,6 +74,7 @@ class login extends Component {
           document.getElementById('login-class').style.display = "none"
           document.getElementById('login-loding').style.display = "block"
           const userData = {
+              'type': 'KakaoUser',
               'user_id': KakaoUser.profile.id,
               'user_email': KakaoUser.profile.kakao_account.email,
               'user_name': KakaoUser.profile.kakao_account.profile.nickname
@@ -84,6 +88,27 @@ class login extends Component {
           window.location.href = window.location.protocol + "//" + window.location.host;
       }
       getData()
+    }
+
+    const responseFacebook = (FacebookUser) => {
+      async function getData() {
+        document.getElementById('login-class').style.display = "none"
+        document.getElementById('login-loding').style.display = "block"
+        const userData = {
+            'type': 'FacebookUser',
+            'user_id': FacebookUser.id,
+            'user_email': FacebookUser.email,
+            'user_name': FacebookUser.name
+        }
+        const headers = {
+            'Access-Control-Allow-Origin': '*',
+            'token': 'token'
+        }
+        var apiResponse = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${FacebookUser.id}`, userData, { headers });
+        window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${FacebookUser.email}", "user_name": "${FacebookUser.name}", "user_image": "${FacebookUser.picture.data.url}", "user_token": "${apiResponse.data.user_token}"}}`);
+        window.location.href = window.location.protocol + "//" + window.location.host;
+      }
+    getData()
     }
 
     const responseFailGoogle = (res) => {
@@ -141,6 +166,11 @@ class login extends Component {
                     onSuccess={responseKakao}
                     onFail={responseFailKakaoLogin}
                   />
+                  <FacebookLogin
+                    appId="201487418524887"
+                    fields="name,email,picture"
+                    callback={responseFacebook}
+                    render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/facebooklogin.png" className="naver-login-image"></img></button>}/>
                   </div>
               
               ) : (

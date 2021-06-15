@@ -39,9 +39,16 @@ class login extends Component {
                 'Access-Control-Allow-Origin': '*',
                 'token': 'token'
             }
-            var apiResponse = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${response.profileObj.googleId}`, userData, { headers });
-            window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${response.profileObj.email}", "user_name": "${response.profileObj.name}", "user_image": "${response.profileObj.imageUrl}", "user_token": "${apiResponse.data.user_token}"}}`);
-            window.location.href = window.location.protocol + "//" + window.location.host;
+            var apiResponse2 = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${response.profileObj.googleId}`, userData, { headers })
+            .then(function(apiResponse){
+              if (apiResponse.status(202)) {
+                window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${response.profileObj.email}", "user_name": "${response.profileObj.name}", "user_image": "${response.profileObj.imageUrl}", "user_token": "${apiResponse.data.user_token}"}}`);
+                window.location.href = window.location.protocol + "//" + window.location.host;
+              }
+              if (apiResponse.status(401)) alert(apiResponse.data.info)
+            }).catch(function(er){
+              alert(er)
+            });
         }
         getData()
       }
@@ -62,9 +69,16 @@ class login extends Component {
               'Access-Control-Allow-Origin': '*',
               'token': 'token'
           }
-          var apiResponse = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${naverUser.id}`, userData, { headers });
-          window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${naverUser.email}", "user_name": "${naverUser.name}", "user_image": "${naverUser.profile_image}", "user_token": "${apiResponse.data.user_token}"}}`);
-          window.location.href = window.location.protocol + "//" + window.location.host;
+          var apiResponse2 = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${naverUser.id}`, userData, { headers })
+          .then(function(apiResponse) {
+            if (apiResponse.status(202)) {
+              window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${naverUser.email}", "user_name": "${naverUser.name}", "user_image": "${naverUser.profile_image}", "user_token": "${apiResponse.data.user_token}"}}`);
+              window.location.href = window.location.protocol + "//" + window.location.host;
+            }
+            if (apiResponse.status(401)) alert(apiResponse.data.info)
+          }).catch(function(er){
+            alert(er)
+          });
       }
       getData()
     }
@@ -83,9 +97,16 @@ class login extends Component {
               'Access-Control-Allow-Origin': '*',
               'token': 'token'
           }
-          var apiResponse = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${KakaoUser.profile.id}`, userData, { headers });
-          window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${KakaoUser.profile.kakao_account.email}", "user_name": "${KakaoUser.profile.kakao_account.profile.nickname}", "user_image": "${KakaoUser.profile.kakao_account.profile.profile_image_url}", "user_token": "${apiResponse.data.user_token}"}}`);
-          window.location.href = window.location.protocol + "//" + window.location.host;
+          var apiResponse2 = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${KakaoUser.profile.id}`, userData, { headers })
+          .then(function(apiResponse){
+            if (apiResponse.status(202)) {
+              window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${KakaoUser.profile.kakao_account.email}", "user_name": "${KakaoUser.profile.kakao_account.profile.nickname}", "user_image": "${KakaoUser.profile.kakao_account.profile.profile_image_url}", "user_token": "${apiResponse.data.user_token}"}}`);
+              window.location.href = window.location.protocol + "//" + window.location.host;
+            }
+            if (apiResponse.status(401)) alert(apiResponse.data.info)
+          }).catch(function(er){
+            alert(er)
+          });
       }
       getData()
     }
@@ -104,9 +125,19 @@ class login extends Component {
             'Access-Control-Allow-Origin': '*',
             'token': 'token'
         }
-        var apiResponse = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${FacebookUser.id}`, userData, { headers });
-        window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${FacebookUser.email}", "user_name": "${FacebookUser.name}", "user_image": "${FacebookUser.picture.data.url}", "user_token": "${apiResponse.data.user_token}"}}`);
-        window.location.href = window.location.protocol + "//" + window.location.host;
+        var apiResponse2 = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${FacebookUser.id}`, userData, { headers })
+        .then(function(apiResponse) {
+            if (apiResponse.status(202)) {
+              window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${FacebookUser.email}", "user_name": "${FacebookUser.name}", "user_image": "${FacebookUser.picture.data.url}", "user_token": "${apiResponse.data.user_token}"}}`);
+              window.location.href = window.location.protocol + "//" + window.location.host;
+            }
+            if (apiResponse.status(401)) {
+              alert(apiResponse.data.info)
+            }
+          })
+        .catch(function(er){
+          alert(er)
+        });
       }
     getData()
     }
@@ -123,6 +154,11 @@ class login extends Component {
 
     const responseFailKakaoLogin = (res) => {
       alert('카카오 로그인 오류발생 (이용불가)')
+      console.log(res)
+    }
+
+    const responseFailFacebookLogin = (res) => {
+      alert('페이스북 로그인 오류발생 (재시도해주세요)')
       console.log(res)
     }
   
@@ -170,6 +206,7 @@ class login extends Component {
                     appId="201487418524887"
                     fields="name,email,picture"
                     callback={responseFacebook}
+                    onFailure={responseFailFacebookLogin}
                     render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/facebooklogin.png" className="naver-login-image"></img></button>}/>
                   </div>
               

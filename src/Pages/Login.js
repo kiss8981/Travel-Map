@@ -39,16 +39,9 @@ class login extends Component {
                 'Access-Control-Allow-Origin': '*',
                 'token': 'token'
             }
-            var apiResponse2 = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${response.profileObj.googleId}`, userData, { headers })
-            .then(function(apiResponse){
-              if (apiResponse.status(202)) {
-                window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${response.profileObj.email}", "user_name": "${response.profileObj.name}", "user_image": "${response.profileObj.imageUrl}", "user_token": "${apiResponse.data.user_token}"}}`);
-                window.location.href = window.location.protocol + "//" + window.location.host;
-              }
-              if (apiResponse.status(401)) alert(apiResponse.data.info)
-            }).catch(function(er){
-              alert(er)
-            });
+            var apiResponse = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${response.profileObj.googleId}`, userData, { headers });
+            window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${response.profileObj.email}", "user_name": "${response.profileObj.name}", "user_image": "${response.profileObj.imageUrl}", "user_token": "${apiResponse.data.user_token}"}}`);
+            window.location.href = window.location.protocol + "//" + window.location.host;
         }
         getData()
       }
@@ -69,16 +62,9 @@ class login extends Component {
               'Access-Control-Allow-Origin': '*',
               'token': 'token'
           }
-          var apiResponse2 = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${naverUser.id}`, userData, { headers })
-          .then(function(apiResponse) {
-            if (apiResponse.status(202)) {
-              window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${naverUser.email}", "user_name": "${naverUser.name}", "user_image": "${naverUser.profile_image}", "user_token": "${apiResponse.data.user_token}"}}`);
-              window.location.href = window.location.protocol + "//" + window.location.host;
-            }
-            if (apiResponse.status(401)) alert(apiResponse.data.info)
-          }).catch(function(er){
-            alert(er)
-          });
+          var apiResponse = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${naverUser.id}`, userData, { headers });
+          window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${naverUser.email}", "user_name": "${naverUser.name}", "user_image": "${naverUser.profile_image}", "user_token": "${apiResponse.data.user_token}"}}`);
+          window.location.href = window.location.protocol + "//" + window.location.host;
       }
       getData()
     }
@@ -97,16 +83,9 @@ class login extends Component {
               'Access-Control-Allow-Origin': '*',
               'token': 'token'
           }
-          var apiResponse2 = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${KakaoUser.profile.id}`, userData, { headers })
-          .then(function(apiResponse){
-            if (apiResponse.status(202)) {
-              window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${KakaoUser.profile.kakao_account.email}", "user_name": "${KakaoUser.profile.kakao_account.profile.nickname}", "user_image": "${KakaoUser.profile.kakao_account.profile.profile_image_url}", "user_token": "${apiResponse.data.user_token}"}}`);
-              window.location.href = window.location.protocol + "//" + window.location.host;
-            }
-            if (apiResponse.status(401)) alert(apiResponse.data.info)
-          }).catch(function(er){
-            alert(er)
-          });
+          var apiResponse = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${KakaoUser.profile.id}`, userData, { headers });
+          window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${KakaoUser.profile.kakao_account.email}", "user_name": "${KakaoUser.profile.kakao_account.profile.nickname}", "user_image": "${KakaoUser.profile.kakao_account.profile.profile_image_url}", "user_token": "${apiResponse.data.user_token}"}}`);
+          window.location.href = window.location.protocol + "//" + window.location.host;
       }
       getData()
     }
@@ -125,19 +104,9 @@ class login extends Component {
             'Access-Control-Allow-Origin': '*',
             'token': 'token'
         }
-        var apiResponse2 = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${FacebookUser.id}`, userData, { headers })
-        .then(function(apiResponse) {
-            if (apiResponse.status(202)) {
-              window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${FacebookUser.email}", "user_name": "${FacebookUser.name}", "user_image": "${FacebookUser.picture.data.url}", "user_token": "${apiResponse.data.user_token}"}}`);
-              window.location.href = window.location.protocol + "//" + window.location.host;
-            }
-            if (apiResponse.status(401)) {
-              alert(apiResponse.data.info)
-            }
-          })
-        .catch(function(er){
-          alert(er)
-        });
+        var apiResponse = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${FacebookUser.id}`, userData, { headers });
+        window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${FacebookUser.email}", "user_name": "${FacebookUser.name}", "user_image": "${FacebookUser.picture.data.url}", "user_token": "${apiResponse.data.user_token}"}}`);
+        window.location.href = window.location.protocol + "//" + window.location.host;
       }
     getData()
     }

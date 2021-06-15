@@ -140,7 +140,7 @@ function AddReport() {
                 {mapShow === true ? (
                     <>
                     <AddReportMap place_name={searchPlace_name}/>
-                    <div role="alert" id="uploadstatus-alert" className="alert alert-info">찾으신 <b>장소</b>가 맞으시면 <b>저장</b> 버튼을 눌러주세요</div>
+                    <div role="alert" id="uploadstatus-alert" className="alert alert-info">찾으신 <b>장소</b>가 맞으시면 <b>저장</b> 버튼을 눌러주세요<br/>아닐 경우 정확한 장소명을 입력해 주세요</div>
                     <button type="button" id="uploadstatus-button" className="btn btn-secondary" style={{ marginBottom:"20px" }} onClick={onClickUpload}>저장</button>
                     </>
                 ) : (

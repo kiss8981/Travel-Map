@@ -112,22 +112,22 @@ class login extends Component {
     }
 
     const responseFailGoogle = (res) => {
-      alert('구글 로그인 오류발생 (이용불가)')
+      alert('구글 로그인 오류발생')
       console.log(res)
     }
 
     const responseFailNaver = (res) => {
-      alert('네이버 로그인 오류발생 (이용불가)')
+      alert('네이버 로그인 오류발생')
       console.log(res)
     }
 
     const responseFailKakaoLogin = (res) => {
-      alert('카카오 로그인 오류발생 (이용불가)')
+      alert('카카오 로그인 오류발생')
       console.log(res)
     }
 
     const responseFailFacebookLogin = (res) => {
-      alert('페이스북 로그인 오류발생 (재시도해주세요)')
+      alert('페이스북 로그인 오류발생')
       console.log(res)
     }
   

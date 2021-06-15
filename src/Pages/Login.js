@@ -38,7 +38,7 @@ class login extends Component {
                 'token': 'token'
             }
             var apiResponse = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${response.profileObj.googleId}`, userData, { headers });
-            window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${response.profileObj.googleId}", "user_email": "${response.profileObj.email}", "user_name": "${response.profileObj.name}", "user_image": "${response.profileObj.imageUrl}", "user_token": "${apiResponse.data.user_token}"}}`);
+            window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${response.profileObj.email}", "user_name": "${response.profileObj.name}", "user_image": "${response.profileObj.imageUrl}", "user_token": "${apiResponse.data.user_token}"}}`);
             window.location.href = window.location.protocol + "//" + window.location.host;
         }
         getData()
@@ -60,7 +60,7 @@ class login extends Component {
               'token': 'token'
           }
           var apiResponse = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${naverUser.id}`, userData, { headers });
-          window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${naverUser.id}", "user_email": "${naverUser.email}", "user_name": "${naverUser.name}", "user_image": "${naverUser.profile_image}", "user_token": "${apiResponse.data.user_token}"}}`);
+          window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${naverUser.email}", "user_name": "${naverUser.name}", "user_image": "${naverUser.profile_image}", "user_token": "${apiResponse.data.user_token}"}}`);
           window.location.href = window.location.protocol + "//" + window.location.host;
       }
       getData()
@@ -80,7 +80,7 @@ class login extends Component {
               'token': 'token'
           }
           var apiResponse = await axios.post(`https://travel.audiscordbot.xyz/api/userinfo/${KakaoUser.profile.id}`, userData, { headers });
-          window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${KakaoUser.profile.id}", "user_email": "${KakaoUser.profile.kakao_account.email}", "user_name": "${KakaoUser.profile.kakao_account.profile.nickname}", "user_image": "${KakaoUser.profile.kakao_account.profile.profile_image_url}", "user_token": "${apiResponse.data.user_token}"}}`);
+          window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${apiResponse.data.user_id}", "user_email": "${KakaoUser.profile.kakao_account.email}", "user_name": "${KakaoUser.profile.kakao_account.profile.nickname}", "user_image": "${KakaoUser.profile.kakao_account.profile.profile_image_url}", "user_token": "${apiResponse.data.user_token}"}}`);
           window.location.href = window.location.protocol + "//" + window.location.host;
       }
       getData()

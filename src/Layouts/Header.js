@@ -20,9 +20,6 @@ const Header = () => {
                         <Link className="nav-link" to="/">홈</Link>
                         <Link className="nav-link" to="/list">목록</Link>
                         <Link className="nav-link" to="/add">기록하기</Link>
-                        <Link to={'/lists/' + JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id} style={{display: 'none'}}>linkToStore</Link>
-                        <Link to={'/map/' + JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id}style={{display: 'none'}}>linkToStore</Link>
-                        <Link to={'/image/' + JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id} style={{display: 'none'}}>linkToStore</Link>
                     </Nav>
                     <Nav className="ml-auto" style={{marginLeft: "auto"}}>
                         {localStorage.getItem("authenticated") === null ? (
@@ -31,7 +28,7 @@ const Header = () => {
                             </>
                         ) : (
                             <>
-                            <Link className="nav-link" to="/profile">내 정보</Link>
+                            <Link className="nav-link" to="/profile" style={{verticalAlign: "middle"}}>내 정보</Link>
                             <Link className="nav-link" to={'/lists/' + JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_id} style={{marginRight:"15px", verticalAlign: "middle"}}>프로필</Link>
                             <button className="logout-button"
                                 onClick={logout}

@@ -5,58 +5,16 @@ import DialogButton from '@material-ui/core/Button'
 
 function VisitedList({userid}) {
   const [infoData, setInfoData] = useState([]);
-  const [userData, setUserData] = useState();
-  const [loading, setLoading] = useState();
-  const [error, setError] = useState();
+  const [loading, setLoading] = useState();  
 
   useEffect(() => {
     getListInfo();
   }, []);
-
-  useEffect(() => {
-    try {
-      setMetaTags({
-        title: `${userData.user_name}님의 여행기록!`,
-        description: `${userData.user_name}님의 여행기록을 확인해보세요!`,
-        imageUrl: imageData()
-      })
-    } catch(e) {
-      setError(e)
-    }
-  }, [userData])
   
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'token': 'token'
   }
-
-  const imageData = (() => {
-    if (infoData[0] === null || infoData.length === 0 || infoData === "undefined" || !infoData || infoData[0].img === undefined) {
-      return "https://travel.audiscordbot.xyz/image/icons-map.png"
-    } else {
-      return 'https://travel.audiscordbot.xyz' + infoData[0].img
-    }
-  })
-
-  const setMetaTags = ({ title="기본", description="기본", imageUrl="https://travel.audiscordbot.xyz/image/icons-map.png" }) => 
-  { //set title 
-    document 
-    .querySelector('meta[property="og:title"]') 
-    .setAttribute("content", `${title}`); 
-    //set description 
-    document 
-    .querySelector('meta[property="og:description"]') 
-    .setAttribute("content", description); 
-    //set images 
-    document 
-    .querySelector('meta[property="og:image"]') 
-    .setAttribute("content", imageUrl); 
-    //set url 
-    document 
-    .querySelector('meta[property="og:url"]') 
-    .setAttribute("content", window.location.href); 
-  };
-
   const getListInfo = async () => { 
     try {
         // 요청이 시작 할 때에는 error 와 users 를 초기화하고
@@ -64,9 +22,7 @@ function VisitedList({userid}) {
         // loading 상태를 true 로 바꿉니다.
         setLoading(true);
         const response = await axios.get(`https://travel.audiscordbot.xyz/api/data/${userid}`, { headers });
-        const userInfo = await axios.get(`https://travel.audiscordbot.xyz/api/userinfo/${userid}`, { headers });
         setInfoData(response.data);
-        setUserData(userInfo.data);
     } catch (error) { 
         console.log(error);
     }
@@ -96,7 +52,7 @@ function VisitedList({userid}) {
 
   return (
         <>
-        <h1 className="title mt-4 mb-4">{userData.user_name}의 여행 기록지</h1>
+        <h1 className="title mt-4 mb-4">{infoData[0].user_name}의 여행 기록지</h1>
         <div className="sub-title-button">
           <DialogButton variant="contained" onClick={openMapUser} style={{backgroundColor: 'white'}}>지도로 보기</DialogButton>
         </div>

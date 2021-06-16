@@ -26,12 +26,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postinstall": "npm install -g react-snap",
     "postbuild": "react-snap"
   },
   "reactSnap":{
-    "include":["/","/add","/lists", "/map", "/profile", "/image", "/login"],
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
+    "include":["/","/add","/lists", "/map", "/profile", "/image", "/login"]
   },
   "eslintConfig": {
     "extends": [

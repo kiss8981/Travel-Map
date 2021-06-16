@@ -31,7 +31,11 @@
   },
   "reactSnap":{
     "include":["/","/add","/lists", "/map", "/profile", "/image", "/login"],
-    "puppeteerExecutablePath": "/usr/bin/google-chrome-unstable"
+    "puppeteerExecutablePath": "/usr/bin/google-chrome-unstable",
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
   },
   "eslintConfig": {
     "extends": [

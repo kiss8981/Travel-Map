@@ -73,6 +73,6 @@ dl, li, ol, ul {
   display: flex !important;
   flex-direction: column;
   justify-content: center !important;
-  margin-bottom: 25vh;
-  margin-top: 20vh;
+  margin-bottom: 12vh;
+  margin-top: 12vh;
 }

@@ -31,7 +31,10 @@
   },
   "reactSnap":{
     "include":["/","/add","/lists", "/map", "/profile", "/image", "/login"],
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
   },
   "eslintConfig": {
     "extends": [

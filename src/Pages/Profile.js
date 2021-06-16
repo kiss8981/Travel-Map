@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container } from 'react-bootstrap'
 import DialogButton from '@material-ui/core/Button'
-import { Link } from 'react-router-dom';
+import LoginRes from '../compoents/LoginRes'
 import '../css/profile.css'
 
 function share() {
@@ -46,10 +46,7 @@ class listUserVisted extends Component {
           <>
               <div className="profile">
                 <h1 className="profile-h1">프로필</h1>
-                <h1 className="title mb-5" style={{marginTop: "18%"}}>로그인시 정보를 확인할 수 있습니다!</h1>
-                <div className="sub-title-button">
-                  <Link className="logout-button" to="/login" style={{marginBottom: "10%"}}>로그인</Link>
-                </div>
+                <LoginRes/>
               </div>
           </>
           ) : (

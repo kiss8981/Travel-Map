@@ -39,7 +39,6 @@ dl, li, ol, ul {
 }
 
 .footerlist {
-  margin: 10px;
   display: flex;
   justify-content: center;
 }

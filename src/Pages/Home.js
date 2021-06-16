@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import Map from '../utills/map';
+import LoginRes from '../compoents/LoginRes'
 
 class home extends Component {
   componentDidMount() {
@@ -27,11 +27,8 @@ class home extends Component {
             {localStorage.getItem("authenticated") === null ? (
               <>
               <Container>
-                <h1 className="title" style={{marginTop: "30vh", marginBottom: "20px"}}>로그인시 정보를 확인할 수 있습니다!</h1>
-                <div className="sub-title-button">
-                  <Link className="logout-button" to="/login" style={{marginBottom: "36vh"}}>로그인</Link>
-                </div>
-                <div className="adfit" style={{width: "100%"}}/>
+                <LoginRes/>
+                <div className="adfit mb-1" style={{width: "100%", margin: "5% auto"}}/>
               </Container>
               </>
             ) : (

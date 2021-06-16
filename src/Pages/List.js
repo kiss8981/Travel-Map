@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import VisitedList from '../compoents/VisitedList'
 import DialogButton from '@material-ui/core/Button'
+import LoginRes from '../compoents/LoginRes'
 
 class listVisted extends Component {
   componentDidMount() {
@@ -36,10 +37,7 @@ class listVisted extends Component {
             {localStorage.getItem("authenticated") === null ? (
               <>
               <Container>
-                <h1 className="title mb-3" style={{marginTop: "30vh"}}>로그인시 정보를 확인할 수 있습니다!</h1>
-                <div className="sub-title-button">
-                <Link className="logout-button" to="/login" style={{marginBottom: "20vh"}}>로그인</Link>
-                </div>
+                <LoginRes/>
                 <div className="adfit" style={{width: "100%",  margin: "0% auto"}}/>
               </Container>
               </>

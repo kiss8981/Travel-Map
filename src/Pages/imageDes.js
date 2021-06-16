@@ -12,9 +12,9 @@ class listVisted extends Component {
     scr.async = 'true';
     scr.type = "text/javascript";
     scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
-    ins.setAttribute('data-ad-width', '728');
-    ins.setAttribute('data-ad-height', '90');
-    ins.setAttribute('data-ad-unit', 'DAN-A4YGwiYEIbA7Q7Kh');
+    ins.setAttribute('data-ad-width', '320');
+    ins.setAttribute('data-ad-height', '100');
+    ins.setAttribute('data-ad-unit', 'DAN-ZwXLdow18F8p3T98');
   
     document.querySelector('.adfit').appendChild(ins);
     document.querySelector('.adfit').appendChild(scr);

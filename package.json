@@ -30,7 +30,8 @@
     "postbuild": "react-snap"
   },
   "reactSnap":{
-    "include":["/","/add","/lists", "/map", "/profile", "/image", "/login"]
+    "include":["/","/add","/lists", "/map", "/profile", "/image", "/login"],
+    "puppeteerExecutablePath": "/usr/bin/google-chrome-unstable"
   },
   "eslintConfig": {
     "extends": [

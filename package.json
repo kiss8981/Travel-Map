@@ -21,12 +21,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "dev:start": "set PORT=8080 && react-scripts start",
-    "start": "set PORT=8080 && serve -s build",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "postbuild": "react-snap"
+    "start": "node app.js",
   },
   "reactSnap":{
     "include":["/","/add","/lists", "/map", "/profile", "/image", "/login"]

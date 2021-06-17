@@ -148,13 +148,13 @@ class login extends Component {
                   <NaverLogin 
                       clientId="Y7TSJ0r__scAdoqud_Si"
                       callbackUrl="https://travel-report.xyz/login"
-                      render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/naverlogin.png" className="naver-login-image"></img></button>}
+                      render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/naverlogin.png" className="naver-login-image" alt="naver-login"></img></button>}
                       onSuccess={responseNaver}
                       onFailure={responseFailNaver}
                   />
                   <GoogleLogin
                       clientId="183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com"
-                      render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/googlelogin.png" className="naver-login-image"></img></button>}
+                      render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/googlelogin.png" className="naver-login-image" alt="google-login"></img></button>}
                       onSuccess={responseGoogle}
                       onFailure={responseFailGoogle}
                       cookiePolicy={'single_host_origin'}
@@ -168,7 +168,7 @@ class login extends Component {
                           e.preventDefault();
                           onClick();
                         }}>
-                          <img src="https://travel.audiscordbot.xyz/image/kakaologin.png" className="naver-login-image"></img></button>
+                          <img src="https://travel.audiscordbot.xyz/image/kakaologin.png" className="naver-login-image" alt="kakao-login"></img></button>
                       </>
                       );
                     }}
@@ -180,9 +180,8 @@ class login extends Component {
                     fields="name,email,picture"
                     callback={responseFacebook}
                     onFailure={responseFailFacebookLogin}
-                    render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/facebooklogin.png" className="naver-login-image"></img></button>}/>
+                    render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/facebooklogin.png" className="naver-login-image" alt="facebook-login"></img></button>}/>
                   </div>
-              
               ) : (
                   <h1 className="title" style={{marginBottom: "30vh", marginTop: "25vh"}}>이미 로그인되어 있습니다</h1>
               )}

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Container } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 import VisitedList from '../compoents/VisitedList'
 import DialogButton from '@material-ui/core/Button'
 import LoginRes from '../compoents/LoginRes'

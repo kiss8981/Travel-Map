@@ -57,7 +57,7 @@ class home extends Component {
     if(user_id.value === "" || user_email.value === "" || user_pw.value === "" || user_name.value === "") {
         necessaryPar.style.display = "block";
     } else {
-      if( confirmPassword != password ) {
+      if( confirmPassword !== password ) {
         var NecessaryparConfirmFalse = document.getElementById('necessary-par-confirm-false')
         NecessaryparConfirmFalse.style.display = "block";
       } else {
@@ -77,10 +77,10 @@ class home extends Component {
         })
           .then((res) => res.json())
           .then((res) => {
-            if (res.result == "failed") {
+            if (res.result === "failed") {
               alert(res.info)
               window.location.reload()
-            } else if (res.result == "success") {
+            } else if (res.result === "success") {
               window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${res.user_id}", "user_email": "${res.user_email}", "user_name": "${res.user_name}", "user_image": "https://travel.audiscordbot.xyz/image/icons-map.png", "user_token": "${res.user_token}"}}`);
               window.location.href = window.location.protocol + "//" + window.location.host;
             }

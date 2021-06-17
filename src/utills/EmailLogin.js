@@ -50,9 +50,9 @@ class EmailLogin extends Component {
         </span>
         <div className="modalContents" onClick={isOpen}>
           <input
-            name="user_id"
+            name="username"
             className="loginPw"
-            type="text"
+            type="username"
             placeholder="아이디"
             onChange={this.loginIdHandler}
           />

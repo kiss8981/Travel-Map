@@ -90,10 +90,10 @@ class home extends Component {
               </span>
               <div className="modalContents">
                 <input
-                  name="user_id"
+                  name="username"
                   id="user_id"
                   className="loginPw"
-                  type="text"
+                  type="username"
                   placeholder="아이디"
                   onChange={this.signUpIdHandler}
                 />

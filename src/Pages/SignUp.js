@@ -84,7 +84,7 @@ class home extends Component {
       <>
             <Container>
             <h1 className="title mt-4 mb-4">회원가입</h1>
-            <div className="loginModal" style={{marginBottom: "20vh", marginTop: "10vh"}}>
+            <div className="loginModal" style={{marginBottom: "10vh", marginTop: "10vh"}}>
               <span className="close">
                 &times;
               </span>

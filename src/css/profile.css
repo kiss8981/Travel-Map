@@ -59,17 +59,12 @@ hr {
     background: rgba(0, 0, 0, 0.6);
 }
 .loginModal {
-      width: 480px;
-      height: 300px;
-      position: relative;
-      box-sizing: border-box;
-      margin: auto;
-      padding: 20px;
+    width: 345px;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 20px;
 }
-.close {
-        float: right;
-        font-size: 25px;
-}
+
 .modalContents {
         margin: 0 auto;
         width: 100%;
@@ -132,7 +127,6 @@ input::placeholder {
 .loginLine {
     color: black;
     font-size: 15px;
-    margin-bottom: 35px;
 }
 .loginLine > a {
     color: black;

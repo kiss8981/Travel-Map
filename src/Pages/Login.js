@@ -143,7 +143,7 @@ class login extends Component {
               {localStorage.getItem("authenticated") === null ? (
                   <div className="login">
                   <EmailLogin>
-
+                    
                   </EmailLogin>
                   <NaverLogin 
                       clientId="Y7TSJ0r__scAdoqud_Si"

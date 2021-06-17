@@ -42,13 +42,9 @@ class EmailLogin extends Component {
 
  
   render() {
-    const { isOpen, close } = this.props; 
     return (
       <div className="loginModal">
-        <span className="close" onClick={close}>
-          &times;
-        </span>
-        <div className="modalContents" onClick={isOpen}>
+        <div className="modalContents">
           <input
             name="username"
             className="loginPw"

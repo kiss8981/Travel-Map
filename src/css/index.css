@@ -45,18 +45,18 @@ dl, li, ol, ul {
 
 .logout-button {
   background-color: rgb(255, 255, 255);
-    display: inline-flex;
-    align-items: center;
-    color: rgba(0, 0, 0, 0.54);
-    box-shadow: rgb(0 0 0 / 24%) 0px 2px 2px 0px, rgb(0 0 0 / 24%) 0px 0px 1px 0px;
-    padding: 7px;
-    padding-right: 10px;
-    padding-left: 10px;
-    border-radius: 2px;
-    border: 1px solid transparent;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.54);
+  box-shadow: rgb(0 0 0 / 24%) 0px 2px 2px 0px, rgb(0 0 0 / 24%) 0px 0px 1px 0px;
+  padding: 7px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
 }
 
 .social-login {
@@ -64,7 +64,7 @@ dl, li, ol, ul {
   background: none;
 }
 .naver-login-image {
-  margin-top: 20px;
+  margin-top: 10px;
   max-width: 300px;
   height: auto !important;
 }
@@ -74,5 +74,5 @@ dl, li, ol, ul {
   flex-direction: column;
   justify-content: center !important;
   margin-bottom: 12vh;
-  margin-top: 12vh;
+  margin-top: 2vh;
 }

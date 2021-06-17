@@ -47,3 +47,98 @@ hr {
     justify-content: center;
     align-items: center;
 }
+
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+.loginModal {
+      width: 480px;
+      height: 300px;
+      position: relative;
+      box-sizing: border-box;
+      margin: auto;
+      padding: 20px;
+}
+.close {
+        float: right;
+        font-size: 25px;
+}
+.modalContents {
+        margin: 0 auto;
+        width: 100%;
+        position: relative;
+        padding: 0 20px 20px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+}
+.signinIcon {
+    width: 150px;
+    margin: 0 auto;
+}
+.loginId {
+    margin-top: 30px;
+    border-radius: 2px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #e5e5e5;
+    padding: 9px 12px;
+    outline: none;
+    box-sizing: border-box;
+}
+input::placeholder {
+  color: #999999;
+}
+.loginPw {
+  margin-top: 15px;
+  border-radius: 2px;
+  width: 100%;
+  height: 40px;
+  border: 1px solid #e5e5e5;
+  padding: 9px 12px;
+  outline: none;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.loginMid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.loginBtn {
+  height: 40px;
+  font-size: 14px;
+  padding: 13px 30px;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  line-height: 1px;
+  margin-top: 20px;
+  border-radius: 3px;
+  border-style: none;
+}
+.loginEnd {
+  text-align: center;
+  font-size: 11px;
+}
+.loginLine {
+    color: black;
+    font-size: 15px;
+    margin-bottom: 35px;
+}
+.loginLine > a {
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.noUser {
+  text-decoration: underline;
+}

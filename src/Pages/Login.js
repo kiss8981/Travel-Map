@@ -4,6 +4,7 @@ import { GoogleLogin } from 'react-google-login';
 import NaverLogin from 'react-login-by-naver';
 import KakaoLogin from 'react-kakao-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import EmailLogin from '../utills/EmailLogin';
 import CircularProgress from '@material-ui/core/CircularProgress'
 import axios from 'axios';
 
@@ -141,6 +142,9 @@ class login extends Component {
             <div id="login-class" style={{display: "block"}}>
               {localStorage.getItem("authenticated") === null ? (
                   <div className="login">
+                  <EmailLogin>
+
+                  </EmailLogin>
                   <NaverLogin 
                       clientId="Y7TSJ0r__scAdoqud_Si"
                       callbackUrl="https://travel-report.xyz/login"

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container } from 'react-bootstrap'
-import AdminPage from '../compoents/AdminUserList'
+import AdminCheck from '../compoents/AdminCheck'
+import LoginRes from '../compoents/LoginRes'
 
 class admin extends Component {
   componentDidMount() {
@@ -19,13 +20,24 @@ class admin extends Component {
     document.querySelector('.adfit').appendChild(ins);
     document.querySelector('.adfit').appendChild(scr);
   }
+
+  
+
   render() {
     return (
       <>
             <Container>
                 <h1 className="title mt-4 mb-4">관리자 페이지</h1>
-                <AdminPage />
+                {localStorage.getItem("authenticated") === null ? (
+                <>
+                    <LoginRes/>
+                    <div className="adfit mb-1" style={{width: "100%", margin: "5% auto"}}/>
+                </>
+                ) : (
+                <>
+                <AdminCheck />
                 <div className="adfit" style={{width: "100%", margin: "auto"}}/>
+                </>)}
             </Container>
       </>
     );

@@ -19,7 +19,7 @@ function VisitedList() {
   }, []);
 
   const getListInfo = () => {
-    fetch(`http://127.0.0.1:8081/api/users`, {
+    fetch(`https://travel.audiscordbot.xyz/api/users`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -71,7 +71,7 @@ function VisitedList() {
 
 
   return (
-      <div style={{marginTop: "10vh", marginBottom: "10vh"}}>
+      <div style={{marginTop: "6vh", marginBottom: "10vh"}}>
         <Collapse in={openFailAlert}>
             <Alert className="mb-4" severity="error" style={{width: "100%", margin: 'auto', maxWidth: '500px'}} action={<IconButton aria-label="close" color="inherit" size="small" onClick={() => (setOpenFailAlert(false))}><CloseIcon fontSize="inherit" /></IconButton>}>{resErrInfo}</Alert>
         </Collapse>

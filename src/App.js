@@ -66,7 +66,7 @@ function App() {
           <Route path="/profile" component={Profile}/>
           <Route path="/image/:imageid" component={ImageDes}/>
           <Route path="/login" component={Login}/>
-          <Route path={'/admin/' + process.env.ADMIN_TOKEN } component={Admin}/>
+          <Route path="/admin" component={Admin}/>
           <Route component={NotFound} />
         </Switch>
       <Footer />

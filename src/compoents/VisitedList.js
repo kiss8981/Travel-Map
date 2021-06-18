@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import sleep from '../utills/sleep'
+import Alert from '@material-ui/lab/Alert'
+import IconButton from '@material-ui/core/IconButton';
+import Collapse from '@material-ui/core/Collapse';
+import CloseIcon from '@material-ui/icons/Close';
 
 import DeleteButton from "../utills/deleteButton";
 
@@ -10,6 +13,7 @@ function VisitedList() {
   const [infoData, setInfoData] = useState([]);
   const [loading, setLoading] = useState();
   const [reload, setReload] = useState(false);
+  const [openFailAlert, setOpenFailAlert] = useState(false);
 
   const getListReload = () => {
     setReload(true)
@@ -17,7 +21,7 @@ function VisitedList() {
   }
 
   const successAlart = () => {
-    document.getElementById('success-alart').style.display = "flex"
+    setOpenFailAlert(true)
   }
   
   useEffect(() => {
@@ -55,6 +59,9 @@ function VisitedList() {
     );
   if (!infoData ) return (
     <>
+      <Collapse in={openFailAlert}>
+          <Alert className="mt-4" id="success-alart" severity="success" action={<IconButton aria-label="close" color="inherit" size="small" onClick={() => {setOpenFailAlert(false)}}><CloseIcon fontSize="inherit" /></IconButton>}>성공적으로 삭제되었습니다!</Alert>
+      </Collapse>
       <h1 className="title" style={{marginTop: "20vh"}}>등록된 기록이 없습니다!</h1>
       <div className="sub-title-button">
         <Link className="logout-button" to="/add" style={{textDecoration: "none", marginBottom: "30vh"}} >기록을 남겨보세요!</Link>
@@ -64,6 +71,9 @@ function VisitedList() {
 
   if (infoData.length === 0) return (
     <>
+      <Collapse in={openFailAlert}>
+          <Alert className="mt-4" id="success-alart" severity="success" action={<IconButton aria-label="close" color="inherit" size="small" onClick={() => {setOpenFailAlert(false)}}><CloseIcon fontSize="inherit" /></IconButton>}>성공적으로 삭제되었습니다!</Alert>
+      </Collapse>
       <h1 className="title" style={{marginTop: "20vh"}}>등록된 기록이 없습니다!</h1>
       <div className="sub-title-button">
         <Link className="logout-button" to="/add" style={{textDecoration: "none", marginBottom: "30vh"}} >기록을 남겨보세요!</Link>
@@ -73,6 +83,9 @@ function VisitedList() {
 
   return (
         <>
+        <Collapse in={openFailAlert}>
+          <Alert className="mt-4" id="success-alart" severity="success" action={<IconButton aria-label="close" color="inherit" size="small" onClick={() => {setOpenFailAlert(false)}}><CloseIcon fontSize="inherit" /></IconButton>}>성공적으로 삭제되었습니다!</Alert>
+        </Collapse>
         <div className="card-list">
             {infoData.map(({ place_name, description, visittime, img }) => (
                   <div key={img} className="card-list-sub">

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from 'react-bootstrap'
 import Alert from '@material-ui/lab/Alert'
+import IconButton from '@material-ui/core/IconButton';
+import Collapse from '@material-ui/core/Collapse';
+import CloseIcon from '@material-ui/icons/Close';
 
 class home extends Component {
   componentDidMount() {
@@ -28,7 +31,9 @@ class home extends Component {
     type: "emailUser",
     veNumber: "qwertyuiop0472346",
     userVeNumber: "12312312313212",
-    veEmail: false
+    veEmail: false,
+    openFailAlert: false,
+    openSuccessAlart: false
   };
 
   signUpIdHandler = (e) => {
@@ -61,14 +66,13 @@ class home extends Component {
     var user_email = document.getElementById('user_email')
     var user_pw = document.getElementById('user_pw')
     var user_name = document.getElementById('user_name')
-    var necessaryPar = document.getElementById('necessary-par')
     if(user_id.value === "" || user_email.value === "" || user_pw.value === "" || user_name.value === "") {
       document.getElementsByClassName("MuiAlert-message")[0].innerHTML = "필수 입력란을 입력해 주세요"
-      document.getElementById("fail-alart").style.display = "flex"
+      this.setState({openFailAlert: true})
     } else {
       if( confirmPassword !== password ) {
         document.getElementsByClassName("MuiAlert-message")[0].innerHTML = "비밀번호가 일치하지 않습니다."
-        document.getElementById("fail-alart").style.display = "flex"
+        this.setState({openFailAlert: true})
       } else {
         if ( veEmail === true ) {
           fetch(`https://travel.audiscordbot.xyz/api/userinfo/register/${id}`, {
@@ -89,7 +93,7 @@ class home extends Component {
           .then((res) => {
             if (res.result === "failed") {
               document.getElementsByClassName("MuiAlert-message")[0].innerHTML = res.info
-              document.getElementById("fail-alart").style.display = "flex"
+              this.setState({openFailAlert: true})
             } else if (res.result === "success") {
               window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${res.user_id}", "user_email": "${res.user_email}", "user_name": "${res.user_name}", "user_image": "https://travel.audiscordbot.xyz/image/icons-map.png", "user_token": "${res.user_token}"}}`);
               window.location.href = window.location.protocol + "//" + window.location.host;
@@ -97,7 +101,7 @@ class home extends Component {
           });
         } else {
           document.getElementsByClassName("MuiAlert-message")[0].innerHTML = "이메일을 인증해 주세요."
-          document.getElementById("fail-alart").style.display = "flex"
+          this.setState({openFailAlert: true})
         }
       }
     }
@@ -106,16 +110,16 @@ class home extends Component {
   verificationEmail = () => {
     const { userVeNumber, veNumber } = this.state;
     if (userVeNumber === veNumber) {
-      document.getElementById("success-alart-2").style.display = "flex"
+      document.getElementsByClassName("MuiAlert-message")[1].innerHTML = "이메일 주소가 인증되었습니다!"
+      this.setState({openSuccessAlart: true})
       this.setState({ veEmail: true });
       document.getElementById("sendemail").style.display = "none"
       document.getElementById("ve-email-check").style.display = "none"
       document.getElementById("user_verification").readOnly = true;
       document.getElementById("user_email").readOnly = true;
-      document.getElementsByClassName("MuiAlert-message")[2].innerHTML = "이메일 주소가 인증되었습니다!"
     } else {
       document.getElementsByClassName("MuiAlert-message")[0].innerHTML = "인증번호가 올바르지 않습니다"
-      document.getElementById("fail-alart").style.display = "flex"
+      this.setState({openFailAlert: true})
     }
   }
 
@@ -124,7 +128,7 @@ class home extends Component {
     var user_email = document.getElementById('user_email')
     if(user_email.value === "") {
       document.getElementsByClassName("MuiAlert-message")[0].innerHTML = "이메일 주소를 입력해 주세요."
-      document.getElementById("fail-alart").style.display = "flex"
+      this.setState({openFailAlert: true})
     } else {
       fetch(`https://travel.audiscordbot.xyz/api/email`, {
             method: "POST",
@@ -141,14 +145,14 @@ class home extends Component {
               if (res.result === "failed") {
                 if (res.code.code === "EENVELOPE") {
                   document.getElementsByClassName("MuiAlert-message")[0].innerHTML = "올바르지 않은 이메일 주소입니다"
-                  document.getElementById("fail-alart").style.display = "flex"
+                  this.setState({openFailAlert: true})
                 } else {
                   document.getElementsByClassName("MuiAlert-message")[0].innerHTML = res.info
-                  document.getElementById("fail-alart").style.display = "flex"
+                  this.setState({openFailAlert: true})
                 }
               } else if (res.result === "success") {
                 document.getElementsByClassName("MuiAlert-message")[1].innerHTML = res.info
-                document.getElementById("success-alart").style.display = "flex"
+                this.setState({openSuccessAlart: true})
                 this.setState({ veNumber: String(res.number) });
               }
             });
@@ -156,16 +160,20 @@ class home extends Component {
   }
 
   render() {
+    const { openFailAlert,  openSuccessAlart } = this.state;
     return (
       <>
             <Container>
             <h1 className="title mt-4 mb-4">회원가입</h1>
             <div className="loginModal" style={{marginBottom: "18vh", marginTop: "10vh"}}>
-            <Alert className="mb-4" id="fail-alart" severity="error" style={{width: "100%", margin: 'auto', display: 'none', maxWidth: '500px'}} onClose={() => {document.getElementById('fail-alart').style.display = "none"}}>오류발생!</Alert>
-            <Alert className="mb-4" id="success-alart" severity="success" style={{width: "100%", display: 'none', margin: 'auto', maxWidth: '500px'}} onClose={() => {document.getElementById('success-alart').style.display = "none"}}>!</Alert>
-            <Alert className="mb-4" id="success-alart-2" severity="success" style={{width: "100%", display: 'none', margin: 'auto', maxWidth: '500px'}} onClose={() => {document.getElementById('success-alart').style.display = "none"}}>!</Alert>
+            <Collapse in={openFailAlert}>
+              <Alert className="mb-4" severity="error" style={{width: "100%", margin: 'auto', maxWidth: '500px'}} action={<IconButton aria-label="close" color="inherit" size="small" onClick={() => {this.setState({openFailAlert: false})}}><CloseIcon fontSize="inherit" /></IconButton>}>Close me!</Alert>
+            </Collapse>
+            <Collapse in={openSuccessAlart}>
+              <Alert className="mb-4" severity="success" style={{width: "100%", margin: 'auto', maxWidth: '500px'}} action={<IconButton aria-label="close" color="inherit" size="small" onClick={() => {this.setState({openSuccessAlart: false})}}><CloseIcon fontSize="inherit" /></IconButton>}>Close me!</Alert>
+            </Collapse>
               <div className="modalContents">
-                <text><i class="fas fa-address-card"></i> 아이디</text>
+                <text><i className="fas fa-address-card"></i> 아이디</text>
                 <input
                   name="username"
                   id="user_id"

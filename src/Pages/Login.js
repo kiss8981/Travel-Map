@@ -145,42 +145,44 @@ class login extends Component {
                   <EmailLogin>
                     
                   </EmailLogin>
-                  <NaverLogin 
-                      clientId="Y7TSJ0r__scAdoqud_Si"
-                      callbackUrl="https://travel-report.xyz/login"
-                      render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/naverlogin.png" className="naver-login-image" alt="naver-login"></img></button>}
-                      onSuccess={responseNaver}
-                      onFailure={responseFailNaver}
-                  />
-                  <GoogleLogin
-                      clientId="183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com"
-                      render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/googlelogin.png" className="naver-login-image" alt="google-login"></img></button>}
-                      onSuccess={responseGoogle}
-                      onFailure={responseFailGoogle}
-                      cookiePolicy={'single_host_origin'}
-                  />
-                  <KakaoLogin
-                    token="6fb2e2b96c7ddb5a37dc65c2caf25816"
-                    render={({ onClick }) => {
-                      return (
-                        <>
-                        <button className="social-login" onClick={(e) => {
-                          e.preventDefault();
-                          onClick();
-                        }}>
-                          <img src="https://travel.audiscordbot.xyz/image/kakaologin.png" className="naver-login-image" alt="kakao-login"></img></button>
-                      </>
-                      );
-                    }}
-                    onSuccess={responseKakao}
-                    onFail={responseFailKakaoLogin}
-                  />
-                  <FacebookLogin
-                    appId="201487418524887"
-                    fields="name,email,picture"
-                    callback={responseFacebook}
-                    onFailure={responseFailFacebookLogin}
-                    render={(props) => <button className="social-login" onClick={props.onClick}><img src="https://travel.audiscordbot.xyz/image/facebooklogin.png" className="naver-login-image" alt="facebook-login"></img></button>}/>
+                  <div className="login-social">
+                    <NaverLogin 
+                        clientId="Y7TSJ0r__scAdoqud_Si"
+                        callbackUrl="https://travel-report.xyz/login"
+                        render={(props) => <button className="social-login" style={{background: '#1FC700'}} onClick={props.onClick}><i class="xi-2x xi-naver"></i></button>}
+                        onSuccess={responseNaver}
+                        onFailure={responseFailNaver}
+                    />
+                    <GoogleLogin
+                        clientId="183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com"
+                        render={(props) => <button className="social-login" style={{background: '#D93025'}}onClick={props.onClick}><i class="xi-2x xi-google"></i></button>}
+                        onSuccess={responseGoogle}
+                        onFailure={responseFailGoogle}
+                        cookiePolicy={'single_host_origin'}
+                    />
+                    <KakaoLogin
+                      token="6fb2e2b96c7ddb5a37dc65c2caf25816"
+                      render={({ onClick }) => {
+                        return (
+                          <>
+                          <button className="social-login" style={{background: '#FFEB00'}} onClick={(e) => {
+                            e.preventDefault();
+                            onClick();
+                          }}>
+                            <i class="xi-2x xi-kakaotalk text-dark"></i></button>
+                        </>
+                        );
+                      }}
+                      onSuccess={responseKakao}
+                      onFail={responseFailKakaoLogin}
+                    />
+                    <FacebookLogin
+                      appId="201487418524887"
+                      fields="name,email,picture"
+                      callback={responseFacebook}
+                      onFailure={responseFailFacebookLogin}
+                      render={(props) => <button className="social-login" style={{background: '#4267B2'}} onClick={props.onClick}><i class="xi-2x xi-facebook"></i></button>}/>
+                    </div>
                   </div>
               ) : (
                   <h1 className="title" style={{marginBottom: "30vh", marginTop: "25vh"}}>이미 로그인되어 있습니다</h1>

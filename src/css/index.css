@@ -60,19 +60,27 @@ dl, li, ol, ul {
 }
 
 .social-login {
-  border: 0px;
   background: none;
-}
-.naver-login-image {
-  margin-top: 10px;
-  max-width: 300px;
-  height: auto !important;
+  transition: all .2s;
+  outline: 0;
+  border: 1px solid transparent;
+  padding: .5rem !important;
+  border-radius: 50%;
+  color: #fff;
+  margin-right: 5px;
+  margin-left: 5px;
+  display: flex;
 }
 
 .login {
-  display: flex !important;
-  flex-direction: column;
-  justify-content: center !important;
-  margin-bottom: 8vh;
-  margin-top: 2vh;
+  text-align: center;
+  margin-top: 10vh;
+  margin-bottom: 15vh;
+}
+
+.login-social {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }

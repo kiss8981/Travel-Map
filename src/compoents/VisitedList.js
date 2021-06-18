@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import sleep from '../utills/sleep'
 
 import DeleteButton from "../utills/deleteButton";
 
@@ -13,6 +14,10 @@ function VisitedList() {
   const getListReload = () => {
     setReload(true)
     setReload(false)
+  }
+
+  const successAlart = () => {
+    document.getElementById('success-alart').style.display = "flex"
   }
   
   useEffect(() => {
@@ -77,7 +82,7 @@ function VisitedList() {
                             <p>{description}</p>
                             <p className="text-gray"><i className="fas fa-clock"></i> {visittime}</p>
                         </div>
-                        <DeleteButton image_id={img.replace("/image/","")} place_name={place_name} stateReload={getListReload}/>
+                        <DeleteButton image_id={img.replace("/image/","")} place_name={place_name} stateReload={getListReload} successAlart={successAlart}/>
                   </div>
             ))}
         </div>

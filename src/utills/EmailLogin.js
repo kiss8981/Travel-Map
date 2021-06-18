@@ -32,7 +32,8 @@ class EmailLogin extends Component {
       .then((res) => res.json())
       .then((res) => {
         if (res.result === "failed") {
-          alert(res.info)
+          document.getElementsByClassName('MuiAlert-message')[0].innerHTML = res.info
+          this.props.failAlert()
         } else if (res.result === "success") {
           window.localStorage.setItem("authenticated", `{"authenticated": {"user_id": "${res.user_id}", "user_email": "${res.user_email}", "user_name": "${res.user_name}", "user_image": "https://travel.audiscordbot.xyz/image/icons-map.png", "user_token": "${res.user_token}"}}`);
           window.location.href = window.location.protocol + "//" + window.location.host;

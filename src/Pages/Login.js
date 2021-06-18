@@ -7,6 +7,7 @@ import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props
 import EmailLogin from '../utills/EmailLogin';
 import CircularProgress from '@material-ui/core/CircularProgress'
 import axios from 'axios';
+import Alert from '@material-ui/lab/Alert'
 
 class login extends Component {
   componentDidMount() {
@@ -91,6 +92,10 @@ class login extends Component {
       getData()
     }
 
+    const failAlert = (res) => {
+      document.getElementById('fail-alart').style.display = "flex"
+    }
+
     const responseFacebook = (FacebookUser) => {
       async function getData() {
         document.getElementById('login-class').style.display = "none"
@@ -141,9 +146,10 @@ class login extends Component {
             </div>
             <div id="login-class" style={{display: "block"}}>
               {localStorage.getItem("authenticated") === null ? (
+                <>
                   <div className="login">
-                  <EmailLogin>
-                    
+                  <Alert className="mt-4" id="fail-alart" severity="error" style={{width: "80%", margin: 'auto', display: 'none'}} onClose={() => {document.getElementById('fail-alart').style.display = "none"}}>오류발생!</Alert>
+                  <EmailLogin failAlert={failAlert}>
                   </EmailLogin>
                   <div className="login-social">
                     <NaverLogin 
@@ -184,6 +190,7 @@ class login extends Component {
                       render={(props) => <button className="social-login" style={{background: '#4267B2'}} onClick={props.onClick}><i class="xi-2x xi-facebook"></i></button>}/>
                     </div>
                   </div>
+                </>
               ) : (
                   <h1 className="title" style={{marginBottom: "30vh", marginTop: "25vh"}}>이미 로그인되어 있습니다</h1>
               )}

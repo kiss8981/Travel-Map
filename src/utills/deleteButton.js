@@ -6,7 +6,6 @@ import DialogContent from '@material-ui/core/DialogContent'
 import DialogButton from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 class DeleteButton extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -38,6 +37,7 @@ class DeleteButton extends React.Component {
             method: 'DELETE',
             headers: Headers
         }).then(this.props.stateReload)
+        .then(this.props.successAlart)
         .catch(error => console.error('Error:', error));
       }
     

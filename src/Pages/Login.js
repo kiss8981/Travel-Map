@@ -155,13 +155,13 @@ class login extends Component {
                     <NaverLogin 
                         clientId="Y7TSJ0r__scAdoqud_Si"
                         callbackUrl="https://travel-report.xyz/login"
-                        render={(props) => <button className="social-login" style={{background: '#1FC700'}} onClick={props.onClick}><i class="xi-2x xi-naver"></i></button>}
+                        render={(props) => <button className="social-login" style={{background: '#1FC700'}} onClick={props.onClick}><i className="xi-2x xi-naver"></i></button>}
                         onSuccess={responseNaver}
                         onFailure={responseFailNaver}
                     />
                     <GoogleLogin
                         clientId="183101622325-9e3rckitc7jt7ienvkva4q92j1okkkel.apps.googleusercontent.com"
-                        render={(props) => <button className="social-login" style={{background: '#D93025'}}onClick={props.onClick}><i class="xi-2x xi-google"></i></button>}
+                        render={(props) => <button className="social-login" style={{background: '#D93025'}}onClick={props.onClick}><i className="xi-2x xi-google"></i></button>}
                         onSuccess={responseGoogle}
                         onFailure={responseFailGoogle}
                         cookiePolicy={'single_host_origin'}
@@ -175,7 +175,7 @@ class login extends Component {
                             e.preventDefault();
                             onClick();
                           }}>
-                            <i class="xi-2x xi-kakaotalk text-dark"></i></button>
+                            <i className="xi-2x xi-kakaotalk text-dark"></i></button>
                         </>
                         );
                       }}
@@ -187,7 +187,7 @@ class login extends Component {
                       fields="name,email,picture"
                       callback={responseFacebook}
                       onFailure={responseFailFacebookLogin}
-                      render={(props) => <button className="social-login" style={{background: '#4267B2'}} onClick={props.onClick}><i class="xi-2x xi-facebook"></i></button>}/>
+                      render={(props) => <button className="social-login" style={{background: '#4267B2'}} onClick={props.onClick}><i className="xi-2x xi-facebook"></i></button>}/>
                     </div>
                   </div>
                 </>

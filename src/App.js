@@ -12,6 +12,7 @@ import UserMap from './Pages/UserMap'
 import Login from './Pages/Login'
 import NotFound from './Pages/NotFound'
 import SignUp from './Pages/SignUp'
+import Admin from './Pages/Admin'
 
 import Header from './Layouts/Header'
 import Footer from './Layouts/Footer'
@@ -65,6 +66,7 @@ function App() {
           <Route path="/profile" component={Profile}/>
           <Route path="/image/:imageid" component={ImageDes}/>
           <Route path="/login" component={Login}/>
+          <Route path={'/admin/' + process.env.ADMIN_TOKEN } component={Admin}/>
           <Route component={NotFound} />
         </Switch>
       <Footer />

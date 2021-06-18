@@ -46,6 +46,7 @@ class EmailLogin extends Component {
     return (
       <div className="loginModal">
         <div className="modalContents">
+          <text><i className="fas fa-user"></i> 아이디</text>
           <input
             name="username"
             className="loginPw"
@@ -53,6 +54,7 @@ class EmailLogin extends Component {
             placeholder="아이디"
             onChange={this.loginIdHandler}
           />
+          <text><i className="fas fa-lock mt-2"></i> 비밀번호</text>
           <input
             name="password"
             className="loginPw"

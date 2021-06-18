@@ -105,11 +105,7 @@ class home extends Component {
 
   verificationEmail = () => {
     const { userVeNumber, veNumber } = this.state;
-    console.log(userVeNumber)
-    console.log(veNumber)
     if (userVeNumber === veNumber) {
-      console.log(userVeNumber)
-      console.log(veNumber)
       document.getElementById("success-alart-2").style.display = "flex"
       this.setState({ veEmail: true });
       document.getElementById("sendemail").style.display = "none"

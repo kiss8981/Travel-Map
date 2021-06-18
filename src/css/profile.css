@@ -134,7 +134,3 @@ input::placeholder {
 .noUser {
   text-decoration: underline;
 }
-
-.modalContents > text > i {
-    opacity: 90%;
-}

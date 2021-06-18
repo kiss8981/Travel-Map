@@ -148,7 +148,7 @@ class login extends Component {
               {localStorage.getItem("authenticated") === null ? (
                 <>
                   <div className="login">
-                  <Alert className="mt-4" id="fail-alart" severity="error" style={{width: "80%", margin: 'auto', display: 'none'}} onClose={() => {document.getElementById('fail-alart').style.display = "none"}}>오류발생!</Alert>
+                  <Alert className="mt-4" id="fail-alart" severity="error" style={{width: "100%", margin: 'auto', display: 'none', maxWidth: '500px'}} onClose={() => {document.getElementById('fail-alart').style.display = "none"}}>오류발생!</Alert>
                   <EmailLogin failAlert={failAlert}>
                   </EmailLogin>
                   <div className="login-social">

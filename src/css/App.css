@@ -116,3 +116,7 @@
 .loginPw {
  font-family: 'Segoe UI'
 }
+
+.modalContents > text {
+    margin-top: 5px;
+}

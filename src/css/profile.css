@@ -48,8 +48,6 @@ hr {
     align-items: center;
 }
 
-
-
 .modal {
     position: fixed;
     top: 0;
@@ -66,14 +64,14 @@ hr {
 }
 
 .modalContents {
-        margin: 0 auto;
-        width: 100%;
-        position: relative;
-        padding: 0 20px 20px;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    padding: 0 20px 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 .signinIcon {
     width: 150px;
@@ -93,7 +91,7 @@ input::placeholder {
   color: #999999;
 }
 .loginPw {
-  margin-top: 15px;
+  margin-top: 2px;
   border-radius: 2px;
   width: 100%;
   height: 40px;
@@ -135,4 +133,8 @@ input::placeholder {
 }
 .noUser {
   text-decoration: underline;
+}
+
+.modalContents > text > i {
+    opacity: 90%;
 }

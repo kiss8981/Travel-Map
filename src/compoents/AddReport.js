@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Form } from 'react-bootstrap';
 import AddReportMap from '../utills/AddReportMap'
+import AddReportMap2 from '../utills/AddReportMap2'
 import { Link } from 'react-router-dom';
 import LoginRes from '../compoents/LoginRes'
 
@@ -18,6 +19,7 @@ function AddReport() {
     const [searchPlace_name, setSearchPlace_name] = useState();
     const [mapShow, setMapShow] = useState(false);
     const [uploadStatus, setUploadStatus] = useState(false);
+    const [mapShow2, setMapShow2] = useState(false);
 
     function setThumbnail(event) {
         var reader = new FileReader();
@@ -72,6 +74,12 @@ function AddReport() {
         document.getElementById('input-button').style.opacity = "70%"
     }
 
+    const onClickOtherPlace = () => {
+        setMapShow2(true)
+        var uploadstatusButton2 = document.getElementById('uploadstatus-button-2')
+        uploadstatusButton2.style.display = "none"
+    }
+
     const onClickUpload = async () => {
       const formData = new FormData();
       const headers = {
@@ -92,8 +100,10 @@ function AddReport() {
       setUploadStatus(true)
       var uploadstatusAlert = document.getElementById('uploadstatus-alert')
       var uploadstatusButton = document.getElementById('uploadstatus-button')
+      var uploadstatusButton2 = document.getElementById('uploadstatus-button-2')
       uploadstatusAlert.style.display = "none";
       uploadstatusButton.style.display = "none";
+      uploadstatusButton2.style.display = "none"
     }
 
     return (
@@ -137,9 +147,14 @@ function AddReport() {
                 </Form.Group>
                 {mapShow === true ? (
                     <>
-                    <AddReportMap place_name={searchPlace_name}/>
+                    {mapShow2 === true ? (
+                        <AddReportMap2 place_name={searchPlace_name}/>
+                    ) :(
+                        <AddReportMap place_name={searchPlace_name}/>
+                    )}
                     <div role="alert" id="uploadstatus-alert" className="alert alert-info">찾으신 <b>장소</b>가 맞으시면 <b>저장</b> 버튼을 눌러주세요<br/>아닐 경우 정확한 장소명을 입력해 주세요</div>
                     <button type="button" id="uploadstatus-button" className="btn btn-secondary" style={{ marginBottom:"20px" }} onClick={onClickUpload}>저장</button>
+                    <button type="button" id="uploadstatus-button-2" className="btn btn-secondary" style={{ marginBottom:"20px", marginLeft:"10px" }} onClick={onClickOtherPlace}>이곳이 아니에요!</button>
                     </>
                 ) : (
                     <>

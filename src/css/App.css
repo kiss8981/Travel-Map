@@ -120,3 +120,19 @@
 .modalContents > text {
     margin-top: 5px;
 }
+
+.typegraph {
+    margin: auto;
+    text-align: center;
+}
+
+.regtype {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+.listuser {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}

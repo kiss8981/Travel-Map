@@ -5,6 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
 import CloseIcon from '@material-ui/icons/Close';
 import AdminUserList from './AdminUserList'
+import AdminRegisterType from './AdminRegisterType'
 
 function VisitedList() {
   const [infoData, setInfoData] = useState([]);
@@ -56,7 +57,11 @@ function VisitedList() {
            <Alert className="mb-4" severity="error" style={{width: "100%", margin: 'auto', maxWidth: '500px'}} action={<IconButton aria-label="close" color="inherit" size="small" onClick={() => (setOpenFailAlert(false))}><CloseIcon fontSize="inherit" /></IconButton>}>{resErrInfo}</Alert>
         </Collapse>
         {infoData === "success" ? (
-           <AdminUserList/>) : (
+          <>
+           <AdminUserList/>
+           <AdminRegisterType/>
+          </>
+           ) : (
             <>
                 <div style={{marginTop: "50vh", marginBottom: "20vh"}}></div>
             </>

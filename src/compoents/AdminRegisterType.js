@@ -115,7 +115,7 @@ function AdminRegisterType() {
         <div className="typegraph">
         <h2 style={{marginTop: "5px", marginBottom:"10px"}}>가입방식</h2>
         <Doughnut style={{ maxHeight: "50vh"}} data={comparedData} options={
-            { title: { display: true, text: `구글, 격리 헤제, 사망 (${new Date().getMonth()+1}월)`, fontSize: 16 }},
+            { title: { display: true, text: `구글, 페이스북, 네이버, 카카오, 이메일`, fontSize: 16 }},
             { legend: { display: true, position: "bottom"} }}
         />
         <h4 style={{marginTop: "15px"}}>가입자수: {infoData.length}명</h4>

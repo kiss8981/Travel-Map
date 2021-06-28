@@ -14,13 +14,21 @@ const Header = () => {
     useEffect(() => {
       getListInfo();
     }, []);
+
+    const getToken = () => {
+        if (!window.localStorage.getItem("authenticated")) {
+            return null
+        } else {
+            return JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_token
+        }
+    }
   
     const getListInfo = () => {
       fetch(`https://travel.audiscordbot.xyz/api/user/admin`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "user_token": JSON.parse(window.localStorage.getItem("authenticated")).authenticated.user_token
+          "user_token": getToken()
         }
       })
       .then((res) => res.json())
